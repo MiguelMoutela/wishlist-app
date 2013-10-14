@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="row">
+
+  <div class="col-md-4">
+    <h1>{% trans "List of people" %}</h1>
+    <ul>
+      {% for user in users %}
+        <li>
+          <a href="{% url 'person-detail' user.username %}">
+            {{ user.first_name }} ({{ user.item_set.count }})
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="col-md-4">
+    <h1>{% trans "Recent events" %}</h1>
+    <ul>
+    {% for event in latest %}
+      <li>
+      {% if event.type == 'item' %}
+        {{ event.user.first_name }} {% trans "added an item" %}
+      {% else %}
+        {{ event.user.first_name }} {% trans "committed to buy an item" %}
+        <a href="{% url 'person-detail' event.item.user.username %}">{% trans "Details" %}</a>
+      {% endif %}
+      <br><small>{{ event.created }}</small>
+      <hr>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="col-md-4">
+    <h1>
+      {% trans "Your list" %}
+      <a href="{% url 'item-create' %}" class="btn btn-primary">{% trans "Add new" %}</a>
+    </h1>
+
+    {% for item in items %}
+      <h4>{{ item.name }}</h4>
+      <p>{{ item.html|safe }}</p>
+      <a href="{% url 'item-edit' item.pk %}">{% trans "Edit" %}</a>
+      <hr>
+    {% endfor %}
+
+  </div>
+
+</div>
+
+{% endblock %}

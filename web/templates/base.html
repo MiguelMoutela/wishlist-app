@@ -1,0 +1,41 @@
+{% load i18n %}
+<!doctype html>
+<html>
+<head>
+<title>Wishlist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css" type="text/css">
+</head>
+<body>
+
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Wishlist</a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'password-change' %}">{% trans "Change password" %}</a></li>
+        <li><a href="{% url 'shopping' %}">{% trans "What you're buying" %}</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">{% trans "Log out" %}</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}">{% trans "Log in" %}</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+{% block content %}
+{% endblock %}
+  </div>
+</body>
+</html>

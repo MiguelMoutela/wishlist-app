@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>{{ person.first_name }} - {% trans "list of things" %}</h1>
+
+<hr>
+
+{% for item in items %}
+<div class="item row">
+  <h3>{{ item.name }}
+  {% if item.buying %}
+    <span class="label label-danger">{% trans "Taken by" %} {{ item.buying.user.first_name }}</span>
+  {% else %}
+    <span class="label label-success">{% trans "Free" %}</span>
+  {% endif %}
+  </h3>
+
+  <div class="item-description col-md-6">
+    {{ item.html|safe }}
+  </div>
+
+  <div class="col-md-4 col-md-offset-2">
+    <form method="post">
+      {% csrf_token %}
+
+      <input type="hidden" name="item" value="{{ item.pk }}" />
+
+      {% if item.buying and item.buying.user.pk == user.pk %}
+        <input type="submit" value="{% trans "Don't buy anymore" %}" class="btn btn-danger" />
+        <input type="hidden" name="action" value="remove" />
+      {% elif not item.buying %}
+        <input type="submit" value="{% trans "Commit to buy" %}" class="btn btn-primary" />
+        <input type="hidden" name="action" value="add" />
+      {% endif %}
+    </form>
+  </div>
+
+</div>
+<hr>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="row">
+  <h1>{% trans "Are you sure?" %}</h1>
+
+  <h3>{{ item.name }}</h3>
+
+  <form role="form" method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="{% trans "Delete" %}" />
+  </form>
+
+  <hr>
+
+  <a class="btn btn-success" href="/">{% trans "Home" %}</a>
+
+</div>
+
+{% endblock %}

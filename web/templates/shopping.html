@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="row">
+
+    {% for item in items %}
+      <h4>{{ item.name }} - {{ item.user.first_name }}</h4>
+      <p>{{ item.html|safe }}</p>
+      <hr>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

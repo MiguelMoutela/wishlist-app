@@ -1,0 +1,11 @@
+Django==1.5.4
+Fabric==1.7.0
+South==0.8.2
+distribute==0.6.28
+paramiko==1.11.0
+psycopg2==2.5.1
+pycrypto==2.6
+wsgiref==0.1.2
+bpython
+gunicorn
+misaka
