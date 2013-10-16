@@ -16,7 +16,7 @@ DUMMY_USERS = getattr(settings, 'DUMMY_USERS', [])
 @login_required
 def index(request):
     heading = _('Welcome')
-    items = Item.objects.filter(user=request.user)
+    items = Item.objects.filter(user=request.user).order_by('created')
 
     users = User.objects.exclude(pk=request.user.pk).order_by('first_name')
 
