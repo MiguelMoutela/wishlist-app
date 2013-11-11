@@ -45,17 +45,3 @@ class Buy(models.Model):
     @property
     def type(self):
         return 'buy'
-
-
-class Action(models.Model):
-    TYPES = (
-        ('1', _('added an item'),),
-        ('2', _('committed to buy an item'),),
-    )
-    user = models.ForeignKey(User)
-    created = models.DateTimeField(auto_now_add=True)
-    item = models.ForeignKey(Item)
-    type = models.CharField(max_length=1, choices=TYPES)
-
-    def render(self):
-        return u'{} {}'.format(self.user.first_name, self.get_type_display())
