@@ -10,8 +10,8 @@
     <ul>
       {% for user in users %}
         <li>
-          <a href="{% url 'person-detail' user.username %}">
-            {{ user.first_name }} ({{ user.item_set.count }})
+          <a href="{% url 'person-detail' user.user.username %}">
+            {{ user.user.first_name }} ({{ user.count }})
           </a>
         </li>
       {% endfor %}

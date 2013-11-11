@@ -8,6 +8,13 @@
     {% for item in items %}
       <h4>{{ item.name }} - {{ item.user.first_name }}</h4>
       <p>{{ item.html|safe }}</p>
+      <p>
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="item_pk" value="{{ item.pk }}" />
+          <input class="btn btn-primary" type="submit" value="{% trans 'Mark this as already given' %}" />
+        </form>
+      </p>
       <hr>
     {% endfor %}
 

@@ -16,9 +16,17 @@ DUMMY_USERS = getattr(settings, 'DUMMY_USERS', [])
 @login_required
 def index(request):
     heading = _('Welcome')
-    items = Item.objects.filter(user=request.user).order_by('created')
+    items = Item.objects.filter(user=request.user,
+                                already_given=False).order_by('created')
 
-    users = User.objects.exclude(pk=request.user.pk).order_by('first_name')
+    user_objs = User.objects.exclude(pk=request.user.pk).order_by('first_name')
+    users = []
+
+    for user in user_objs:
+        users.append({
+            'user': user,
+            'count': user.item_set.filter(already_given=False).count()
+        })
 
     latest_items = Item.objects.exclude(
         user=request.user).order_by('-created')[:10]
@@ -127,9 +135,32 @@ def person_detail(request, username):
 
 @login_required
 def shopping(request):
-    items = Buy.objects.filter(user=request.user)
-    data = {
-        'items': [b.item for b in items]
-    }
-    return render_to_response('shopping.html', data,
-                              context_instance=RequestContext(request))
+    if request.method == 'POST':
+        pk = request.POST.get('item_pk', None)
+
+        if not pk:
+            raise Http404
+
+        item = get_object_or_404(Item, pk=pk)
+
+        item.already_given = True
+        item.save()
+
+        messages.success(request, _("Saved"))
+        return redirect('shopping')
+
+    else:
+        items = Buy.objects.filter(user=request.user)
+        buying_items = []
+
+        for b in items:
+            if b.item.already_given:
+                continue
+
+            buying_items.append(b.item)
+
+        data = {
+            'items': buying_items
+        }
+        return render_to_response('shopping.html', data,
+                                  context_instance=RequestContext(request))
