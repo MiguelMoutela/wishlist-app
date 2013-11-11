@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-03 08:06+0200\n"
+"POT-Creation-Date: 2013-11-11 09:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,47 +28,35 @@ msgstr "Název položky"
 msgid "Item description"
 msgstr "Popis položky"
 
-#: web/models.py:52 web/templates/index.html:27
-msgid "added an item"
-msgstr "přidal položku"
-
-#: web/models.py:53 web/templates/index.html:29
-msgid "committed to buy an item"
-msgstr "se rozhodl koupit položku"
-
-#: web/views.py:14
+#: web/views.py:18
 msgid "Welcome"
 msgstr "Vítejte"
 
-#: web/views.py:64
+#: web/views.py:77 web/views.py:149
 msgid "Saved"
 msgstr "Uloženo"
 
-#: web/views.py:86
-msgid "Deleted"
-msgstr "Vymázano"
-
-#: web/views.py:122
+#: web/views.py:116
 msgid "You've committed to buy an item."
 msgstr "Rozhodli jste se koupit tuto položku"
 
-#: web/views.py:131
+#: web/views.py:125
 msgid "You've been removed."
 msgstr "Odebrali jsme vás."
 
-#: web/templates/base.html:17
+#: web/templates/base.html:18
 msgid "Change password"
 msgstr "Změnit heslo"
 
-#: web/templates/base.html:18
+#: web/templates/base.html:19
 msgid "What you're buying"
 msgstr "Co koupíte"
 
-#: web/templates/base.html:22
+#: web/templates/base.html:23
 msgid "Log out"
 msgstr "Odhlasit"
 
-#: web/templates/base.html:24 web/templates/registration/login.html:8
+#: web/templates/base.html:25 web/templates/registration/login.html:8
 msgid "Log in"
 msgstr "Přihlásit"
 
@@ -92,6 +80,14 @@ msgstr "Seznam lidí"
 msgid "Recent events"
 msgstr "Novinky"
 
+#: web/templates/index.html:27
+msgid "added an item"
+msgstr "přidal položku"
+
+#: web/templates/index.html:29
+msgid "committed to buy an item"
+msgstr "se rozhodl koupit položku"
+
 #: web/templates/index.html:30
 msgid "Details"
 msgstr "Podrobnosti"
@@ -105,10 +101,6 @@ msgid "Add new"
 msgstr "Přidat nové"
 
 #: web/templates/index.html:48
-msgid "Remove"
-msgstr "Vymazat"
-
-#: web/templates/index.html:50
 msgid "Edit"
 msgstr "Upravit"
 
@@ -141,6 +133,10 @@ msgstr "Už nekupovat"
 msgid "Commit to buy"
 msgstr "Koupit"
 
+#: web/templates/shopping.html:15
+msgid "Mark this as already given"
+msgstr "Oznac tohle jako ze uz ten darek ten clovek dostal."
+
 #: web/templates/registration/login.html:16
 msgid "Username"
 msgstr "Uživatelské jméno"
@@ -170,10 +166,16 @@ msgstr "Heslo znovu"
 msgid "Password changed"
 msgstr "Heslo změněno"
 
-#: wishlist/settings.py:160
+#: wishlist/settings.py:161
 msgid "English"
 msgstr "Anglicky"
 
-#: wishlist/settings.py:161
+#: wishlist/settings.py:162
 msgid "Czech"
 msgstr "Česky"
+
+#~ msgid "Deleted"
+#~ msgstr "Vymázano"
+
+#~ msgid "Remove"
+#~ msgstr "Vymazat"
