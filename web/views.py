@@ -127,7 +127,7 @@ def person_detail(request, username):
 
     data = {
         'person': person,
-        'items': Item.objects.filter(user=person)
+        'items': Item.objects.filter(user=person, already_given=False)
     }
     return render_to_response('person-detail.html', data,
                               context_instance=RequestContext(request))
