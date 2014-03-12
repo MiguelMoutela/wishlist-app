@@ -2,3 +2,5 @@
 *.db
 settings_server.py
 fabfile.py
+/nbproject/private/
+.idea/

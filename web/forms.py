@@ -12,6 +12,8 @@ DESCRIPTION_ATTRS = {
     'placeholder': _('Description')
 }
 
+MULTI_ITEM_LABEL = _('More people can buy this item')
+
 
 class ItemForm(forms.ModelForm):
 
@@ -19,7 +21,10 @@ class ItemForm(forms.ModelForm):
     description = forms.CharField(
         required=False,
         widget=forms.Textarea(attrs=DESCRIPTION_ATTRS))
+    multi_item = forms.BooleanField(
+        required=False,
+        label=MULTI_ITEM_LABEL)
 
     class Meta:
         model = Item
-        fields = ('name', 'description',)
+        fields = ('name', 'description', 'multi_item',)

@@ -12,7 +12,9 @@
         <form method="post">
           {% csrf_token %}
           <input type="hidden" name="item_pk" value="{{ item.pk }}" />
-          <input class="btn btn-primary" type="submit" value="{% trans 'Mark this as already given' %}" />
+          {% if not item.multi_item %}
+            <input class="btn btn-primary" type="submit" value="{% trans 'Mark this as already given' %}" />
+          {% endif %}
         </form>
       </p>
       <hr>

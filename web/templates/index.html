@@ -45,7 +45,13 @@
     {% for item in items %}
       <h4>{{ item.name }}</h4>
       <p>{{ item.html|safe }}</p>
-      <a href="{% url 'item-edit' item.pk %}">{% trans "Edit" %}</a>
+      <a href="{% url 'item-edit' item.pk %}" class="btn btn-primary btn-sm">{% trans "Edit" %}</a>
+      {% if item.multi_item %}
+        <form method="post" action="{% url 'item-enough' item.pk %}" class="inline-form">
+          {% csrf_token %}
+          <input type="submit" class="btn btn-primary btn-sm" value="{% trans "I have enough" %}" />
+        </form>
+      {% endif %}
       <hr>
     {% endfor %}
 

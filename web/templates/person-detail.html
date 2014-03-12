@@ -10,7 +10,20 @@
 <div class="item row">
   <h3>{{ item.name }}
   {% if item.buying %}
-    <span class="label label-danger">{% trans "Taken by" %} {{ item.buying.user.first_name }}</span>
+    {% for purchase in item.buying %}
+        <span class="label label-danger">
+            {% trans "Taken by" %}
+            {% if purchase.user.pk == user.pk %}
+                {% trans "me" %}
+            {% else %}
+                {{ purchase.user.first_name }}
+            {% endif %}
+        </span>
+        &nbsp;
+    {% endfor %}
+    {% if item.multi_item and not item in myBuying %}
+        <span class="label label-success">{% trans "Still free" %}</span>
+    {% endif %}
   {% else %}
     <span class="label label-success">{% trans "Free" %}</span>
   {% endif %}
@@ -26,10 +39,10 @@
 
       <input type="hidden" name="item" value="{{ item.pk }}" />
 
-      {% if item.buying and item.buying.user.pk == user.pk %}
+      {% if item.buying and item in myBuying %}
         <input type="submit" value="{% trans "Don't buy anymore" %}" class="btn btn-danger" />
         <input type="hidden" name="action" value="remove" />
-      {% elif not item.buying %}
+      {% elif not item.buying or item.multi_item and not item in myBuying %}
         <input type="submit" value="{% trans "Commit to buy" %}" class="btn btn-primary" />
         <input type="hidden" name="action" value="add" />
       {% endif %}

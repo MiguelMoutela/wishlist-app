@@ -86,6 +86,19 @@ def item_edit(request, pk):
     return render_to_response('new.html', data,
                               context_instance=RequestContext(request))
 
+@login_required
+def item_enough(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+
+    if request.method == 'POST':
+        if not item.multi_item:
+            raise Http404
+
+        item.already_given = True
+        item.save()
+        messages.success(request, _("Saved"))
+
+    return redirect('index')
 
 @login_required
 def person_detail(request, username):
@@ -108,7 +121,7 @@ def person_detail(request, username):
             pass
 
         if action == 'add':
-            if buying:
+            if buying and not item.multi_item:
                 raise Http404
 
             Buy.objects.create(user=request.user, item=item)
@@ -120,14 +133,15 @@ def person_detail(request, username):
             if not buying:
                 raise Http404
 
-            buying.delete()
+            Buy.objects.filter(user=request.user, item=item).delete();
 
             messages.success(request, _("You've been removed."))
             return redirect('person-detail', username=username)
 
     data = {
         'person': person,
-        'items': Item.objects.filter(user=person, already_given=False)
+        'items': Item.objects.filter(user=person, already_given=False),
+        'myBuying': Item.objects.filter(buy__user=request.user)
     }
     return render_to_response('person-detail.html', data,
                               context_instance=RequestContext(request))
@@ -142,6 +156,9 @@ def shopping(request):
             raise Http404
 
         item = get_object_or_404(Item, pk=pk)
+
+        if item.multi_item:
+            raise Http404
 
         item.already_given = True
         item.save()

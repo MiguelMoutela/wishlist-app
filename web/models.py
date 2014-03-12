@@ -13,6 +13,7 @@ class Item(models.Model):
     already_given = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+    multi_item = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name
@@ -20,7 +21,7 @@ class Item(models.Model):
     @property
     def buying(self):
         try:
-            return self.buy_set.all()[0]
+            return self.buy_set.all()
         except IndexError:
             return None
 
