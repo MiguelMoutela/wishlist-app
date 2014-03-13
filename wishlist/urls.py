@@ -19,6 +19,7 @@ urlpatterns = patterns('',
 
     url(r'^$', 'web.views.index', name='index'),
     url(r'^new$', 'web.views.item_create', name='item-create'),
+    url(r'^new/(?P<user_pk>[0-9]+)$', "web.views.item_create", name='item-create'),
     url(r'^shopping$', 'web.views.shopping', name='shopping'),
     url(r'^list/(?P<username>[0-9a-z]+)$', 'web.views.person_detail',
         name='person-detail'),
