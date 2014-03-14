@@ -53,22 +53,24 @@ def item_create(request, user_pk = None):
     if user_pk is not None and int(user_pk) == request.user.pk:
         raise Http404
 
+    user = None
+    if user_pk is not None:
+        user = get_object_or_404(User, pk=user_pk)
+
     if request.method == 'POST':
         surprise = True
-        if user_pk is None:
-            user_pk = request.user.pk
+        if user is None:
+            user = request.user
             surprise = False
 
         form = ItemForm(request.POST)
         if form.is_valid():
             obj = form.save(commit=False)
-            obj.user = User.objects.get(pk=user_pk)
+            obj.user = user
             obj.surprise = surprise
             obj.save()
             if surprise:
-                buy = Buy()
-                buy.user = request.user
-                buy.item = obj
+                buy = Buy.objects.create(user=request.user, item=obj)
                 buy.save()
                 return redirect('person-detail', obj.user.username)
 
@@ -78,7 +80,7 @@ def item_create(request, user_pk = None):
 
     data = {
         'form': form,
-        'user': None if user_pk is None else User.objects.get(pk=user_pk)
+        'user': user
     }
     return render_to_response('new.html', data,
                               context_instance=RequestContext(request))
