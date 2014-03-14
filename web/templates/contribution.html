@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+  <h1>
+    {% blocktrans with item=item.name name=item.user.first_name %}Contribute to {{ item }} for {{ name }}{% endblocktrans %}
+  </h1>
+
+  <form role="form" method="post">
+    {% csrf_token %}
+    {{ form.errors }}
+
+    <div class="form-group">
+      {{ form.estimation }}
+    </div>
+
+    <div class="form-group">
+      {{ form.contribution }}
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="{% trans "Submit" %}" />
+
+  </form>
+
+
+{% endblock %}

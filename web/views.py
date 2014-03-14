@@ -7,7 +7,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
 from models import Buy, Item
-from forms import ItemForm
+from forms import ItemForm, ContributionForm
 
 
 DUMMY_USERS = getattr(settings, 'DUMMY_USERS', [])
@@ -153,7 +153,10 @@ def person_detail(request, username):
             if not buying:
                 raise Http404
 
-            Buy.objects.filter(user=request.user, item=item).delete();
+            Buy.objects.filter(user=request.user, item=item).delete()
+            if item.price and not Buy.objects.filter(item=item).exists():
+                item.price = None
+                item.save()
 
             messages.success(request, _("You've been removed."))
             return redirect('person-detail', username=username)
@@ -201,3 +204,38 @@ def shopping(request):
         }
         return render_to_response('shopping.html', data,
                                   context_instance=RequestContext(request))
+
+@login_required
+def contribute(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+
+    contribution = None
+    buy = None
+    if Buy.objects.filter(user=request.user, item=item).exists():
+        buy = Buy.objects.get(user=request.user, item=item)
+        contribution = buy.amount
+
+    if request.method == 'POST':
+        form = ContributionForm(request.POST)
+        if form.is_valid():
+            item.price = form.cleaned_data["estimation"]
+            item.save()
+            if buy is None:
+                buy = Buy()
+
+            buy.user =request.user
+            buy.item = item
+            buy.amount = form.cleaned_data["contribution"]
+            buy.save()
+            messages.success(request, _("Saved"))
+            return redirect('person-detail', item.user.username)
+    else:
+        form = ContributionForm(initial={
+            'estimation': item.price, 'contribution': contribution})
+
+    data = {
+        'form': form,
+        'item': item
+    }
+    return render_to_response('contribution.html', data,
+                              context_instance=RequestContext(request))

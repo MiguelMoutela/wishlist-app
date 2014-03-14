@@ -1,4 +1,4 @@
-Django==1.5.4
+Django==1.6.2
 Fabric==1.7.0
 South==0.8.2
 distribute==0.6.28

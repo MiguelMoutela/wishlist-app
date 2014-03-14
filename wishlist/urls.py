@@ -30,5 +30,8 @@ urlpatterns = patterns('',
     url(r'^item/(?P<pk>[0-9]+)/enough$', 'web.views.item_enough',
         name='item-enough'),
 
+    url(r'^item/(?P<pk>[0-9]+)/contribute$', 'web.views.contribute',
+        name='contribute'),
+
     url(r'^admin/', include(admin.site.urls)),
 )
