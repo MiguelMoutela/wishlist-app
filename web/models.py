@@ -14,6 +14,7 @@ class Item(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     multi_item = models.BooleanField(default=False)
+    surprise = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name

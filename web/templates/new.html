@@ -5,7 +5,13 @@
 
 <div class="row">
 
-  <h1>{% trans "Add new item" %}</h1>
+  <h1>
+    {% if user %}
+      {% blocktrans with user.first_name as name %}Add new surprise for {{ name }}{% endblocktrans %}
+    {% else %}
+      {% trans "Add new item" %}
+    {% endif %}
+  </h1>
 
     <form role="form" method="post">
       {% csrf_token %}

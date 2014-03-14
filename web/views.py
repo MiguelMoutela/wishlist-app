@@ -17,7 +17,8 @@ DUMMY_USERS = getattr(settings, 'DUMMY_USERS', [])
 def index(request):
     heading = _('Welcome')
     items = Item.objects.filter(user=request.user,
-                                already_given=False).order_by('created')
+                                already_given=False,
+                                surprise=False).order_by('created')
 
     user_objs = User.objects.exclude(pk=request.user.pk).order_by('first_name')
     users = []
@@ -48,19 +49,38 @@ def index(request):
 
 
 @login_required
-def item_create(request):
+def item_create(request, user_pk = None):
+    if user_pk is not None and int(user_pk) == request.user.pk:
+        raise Http404
+
+    user = None
+    if user_pk is not None:
+        user = get_object_or_404(User, pk=user_pk)
+
     if request.method == 'POST':
+        surprise = True
+        if user is None:
+            user = request.user
+            surprise = False
+
         form = ItemForm(request.POST)
         if form.is_valid():
             obj = form.save(commit=False)
-            obj.user = request.user
+            obj.user = user
+            obj.surprise = surprise
             obj.save()
+            if surprise:
+                buy = Buy.objects.create(user=request.user, item=obj)
+                buy.save()
+                return redirect('person-detail', obj.user.username)
+
             return redirect('index')
     else:
         form = ItemForm()
 
     data = {
         'form': form,
+        'user': user
     }
     return render_to_response('new.html', data,
                               context_instance=RequestContext(request))
