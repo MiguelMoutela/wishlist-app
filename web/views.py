@@ -49,7 +49,7 @@ def index(request):
 
 
 @login_required
-def item_create(request, user_pk = None):
+def item_create(request, user_pk=None):
     if user_pk is not None and int(user_pk) == request.user.pk:
         raise Http404
 
@@ -106,6 +106,7 @@ def item_edit(request, pk):
     return render_to_response('new.html', data,
                               context_instance=RequestContext(request))
 
+
 @login_required
 def item_enough(request, pk):
     item = get_object_or_404(Item, pk=pk)
@@ -119,6 +120,7 @@ def item_enough(request, pk):
         messages.success(request, _("Saved"))
 
     return redirect('index')
+
 
 @login_required
 def person_detail(request, username):
@@ -205,6 +207,7 @@ def shopping(request):
         return render_to_response('shopping.html', data,
                                   context_instance=RequestContext(request))
 
+
 @login_required
 def contribute(request, pk):
     item = get_object_or_404(Item, pk=pk)
@@ -223,7 +226,7 @@ def contribute(request, pk):
             if buy is None:
                 buy = Buy()
 
-            buy.user =request.user
+            buy.user = request.user
             buy.item = item
             buy.amount = form.cleaned_data["contribution"]
             buy.save()

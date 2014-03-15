@@ -42,10 +42,9 @@ class ItemForm(forms.ModelForm):
 
 class ContributionForm(forms.Form):
 
-    estimation = forms.DecimalField(min_value=0, max_digits=11,
-                                    decimal_places=2, widget=forms.NumberInput(
-            attrs=ESTIMATION_ATTRS))
-    contribution = forms.DecimalField(min_value=0, max_digits=11,
-                                      decimal_places=2, widget=forms.NumberInput(
-            attrs=CONTRIBUTION_ATTRS))
-
+    estimation = forms.DecimalField(
+        min_value=0, max_digits=11, decimal_places=2,
+        widget=forms.NumberInput(attrs=ESTIMATION_ATTRS))
+    contribution = forms.DecimalField(
+        min_value=0, max_digits=11, decimal_places=2,
+        widget=forms.NumberInput(attrs=CONTRIBUTION_ATTRS))

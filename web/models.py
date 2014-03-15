@@ -11,7 +11,8 @@ class Item(models.Model):
                                    verbose_name=_('Item description'))
 
     price = models.DecimalField(null=True, max_digits=11, decimal_places=2,
-                                default=None, verbose_name=_('Estimated price'))
+                                default=None,
+                                verbose_name=_('Estimated price'))
 
     already_given = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
@@ -46,7 +47,8 @@ class Buy(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     amount = models.DecimalField(null=True, max_digits=11, decimal_places=2,
-                                 default=None, verbose_name=_('My contribution'))
+                                 default=None,
+                                 verbose_name=_('My contribution'))
 
     def __unicode__(self):
         return '%s buying %s' % (self.user.username, self.item.name)
