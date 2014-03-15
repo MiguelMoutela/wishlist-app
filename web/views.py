@@ -223,7 +223,8 @@ def contribute(request, pk):
         if form.is_valid():
             item.price = form.cleaned_data["estimation"]
             item.save()
-            if buy is None:
+
+            if not buy:
                 buy = Buy()
 
             buy.user = request.user
