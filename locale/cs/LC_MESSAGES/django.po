@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-15 00:12+0100\n"
+"POT-Creation-Date: 2014-03-15 16:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,11 +24,11 @@ msgstr "Popis položky"
 msgid "More people can buy this item"
 msgstr "Může koupit více lidí"
 
-#: web/forms.py:19 web/models.py:14
+#: web/forms.py:19 web/models.py:15
 msgid "Estimated price"
 msgstr "Odhadovaná cena"
 
-#: web/forms.py:24 web/models.py:49
+#: web/forms.py:24 web/models.py:51
 msgid "My contribution"
 msgstr "Můj příspěvek"
 
@@ -44,15 +44,15 @@ msgstr "Popis položky"
 msgid "Welcome"
 msgstr "Vítejte"
 
-#: web/views.py:97 web/views.py:119 web/views.py:189 web/views.py:230
+#: web/views.py:97 web/views.py:120 web/views.py:191 web/views.py:234
 msgid "Saved"
 msgstr "Uloženo"
 
-#: web/views.py:149
+#: web/views.py:151
 msgid "You've committed to buy an item."
 msgstr "Rozhodli jste se koupit tuto položku"
 
-#: web/views.py:161
+#: web/views.py:163
 msgid "You've been removed."
 msgstr "Odebrali jsme vás."
 
@@ -108,26 +108,30 @@ msgid "added an item"
 msgstr "přidal položku"
 
 #: web/templates/index.html:29
+msgid "Someone added a surprise for "
+msgstr "Nekdo pridal prekvapeni for "
+
+#: web/templates/index.html:31
 msgid "committed to buy an item"
 msgstr "se rozhodl koupit položku"
 
-#: web/templates/index.html:30
+#: web/templates/index.html:32
 msgid "Details"
 msgstr "Podrobnosti"
 
-#: web/templates/index.html:41
+#: web/templates/index.html:43
 msgid "Your list"
 msgstr "Váš seznam"
 
-#: web/templates/index.html:42
+#: web/templates/index.html:44
 msgid "Add new"
 msgstr "Přidat nové"
 
-#: web/templates/index.html:48
+#: web/templates/index.html:50
 msgid "Edit"
 msgstr "Upravit"
 
-#: web/templates/index.html:52
+#: web/templates/index.html:54
 msgid "I have enough"
 msgstr "Už toho mám dost"
 

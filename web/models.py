@@ -36,7 +36,7 @@ class Item(models.Model):
 
     @property
     def type(self):
-        return 'item'
+        return 'surprise' if self.surprise else 'item'
 
 
 class Buy(models.Model):

@@ -25,6 +25,8 @@
       <li>
       {% if event.type == 'item' %}
         {{ event.user.first_name }} {% trans "added an item" %}
+      {% elif event.type == 'surprise' %}
+        {% trans "Someone added a surprise for " %} {{ event.user.first_name }}
       {% else %}
         {{ event.user.first_name }} {% trans "committed to buy an item" %}
         <a href="{% url 'person-detail' event.item.user.username %}">{% trans "Details" %}</a>
