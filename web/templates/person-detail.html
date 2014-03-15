@@ -15,7 +15,7 @@
       {% if item.surprise %}
         <span class="glyphicon glyphicon-exclamation-sign"
               data-toggle="tooltip"
-              data-placement="left"
+              data-placement="right"
               title="{% blocktrans with person.first_name as name %}This is surprise, do not tell {{ name }}!{% endblocktrans %}">
               </span>
       {% endif %} {{ item.name }}
