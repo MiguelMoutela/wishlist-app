@@ -109,7 +109,7 @@ msgstr "přidal položku"
 
 #: web/templates/index.html:29
 msgid "Someone added a surprise for "
-msgstr "Nekdo pridal prekvapeni for "
+msgstr "Někdo přidal překvapení pro "
 
 #: web/templates/index.html:31
 msgid "committed to buy an item"
