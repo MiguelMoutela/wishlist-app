@@ -82,6 +82,8 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'abc'
 
