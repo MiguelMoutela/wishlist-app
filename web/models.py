@@ -4,6 +4,20 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 
 
+LANGUAGES = (
+    ('en', _('English')),
+    ('cs', _('Czech')),
+)
+
+
+class UserProfile(models.Model):
+    language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
+    user = models.OneToOneField(User)
+
+    def __unicode__(self):
+        return 'Profile for {}'.format(self.user.username)
+
+
 class Item(models.Model):
     user = models.ForeignKey(User)
     name = models.CharField(max_length=255, verbose_name=_('Item name'))

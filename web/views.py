@@ -8,6 +8,7 @@ from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
 from models import Buy, Item
 from forms import ItemForm, ContributionForm
+from utils import get_latest_for_user
 
 
 DUMMY_USERS = getattr(settings, 'DUMMY_USERS', [])
@@ -29,14 +30,7 @@ def index(request):
             'count': user.item_set.filter(already_given=False).count()
         })
 
-    latest_items = Item.objects.exclude(
-        user=request.user).order_by('-created')[:10]
-    latest_buys = Buy.objects.exclude(user=request.user).exclude(
-        item__user=request.user).order_by('-created')[:10]
-
-    latest = list(latest_items) + list(latest_buys)
-    latest.sort(key=lambda x: x.created)
-    latest.reverse()
+    latest = get_latest_for_user(request.user)
 
     data = {
         'items': items,

@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'djcelery',
     'south',
     'web',
 )
@@ -160,8 +161,8 @@ LOGGING = {
 _ = lambda x: x
 
 LANGUAGES = (
-  ('en', _('English')),
-  ('cs', _('Czech')),
+    ('en', _('English')),
+    ('cs', _('Czech')),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -176,3 +177,11 @@ LOCALE_PATHS = (
 )
 
 LOGIN_REDIRECT_URL = '/'
+DOMAIN = 'www.example.com'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+import djcelery
+djcelery.setup_loader()
+
+BROKER_URL = 'redis://localhost:6379/3'
