@@ -10,16 +10,16 @@
     <form role="form" method="post">
       {% csrf_token %}
 
-      {{ form.errors }}
-
       <div class="form-group">
         <label for="id_username">{% trans "Username" %}</label>
-        {{ form.username }}
+        <input class="form-control" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" type="{{ form.username.field.widget.input_type }}" />
+        {{ form.username.errors }}
       </div>
 
       <div class="form-group">
         <label for="id_password">{% trans "Password" %}</label>
-        {{ form.password }}
+        <input class="form-control" id="{{ form.password.id_for_label }}" name="{{ form.password.html_name }}" type="{{ form.password.field.widget.input_type }}" />
+        {{ form.password.errors }}
       </div>
 
       <input type="submit" class="btn btn-primary" value="{% trans "Submit" %}"/>
