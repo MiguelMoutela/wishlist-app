@@ -24,7 +24,7 @@
     {% for event in latest %}
       <li>
       {% if event.type == 'item' %}
-        {{ event.user.first_name }} {% trans "added an item" %}
+      {{ event.user.first_name }} {% trans "added an item" %}: {{ event.name }}
       {% elif event.type == 'surprise' %}
         {% trans "Someone added a surprise for " %} {{ event.user.first_name }}
       {% else %}
