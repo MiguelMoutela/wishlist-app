@@ -19,6 +19,9 @@
               title="{% blocktrans with person.first_name as name %}This is surprise, do not tell {{ name }}!{% endblocktrans %}">
               </span>
       {% endif %} {{ item.name }}
+      {% if item.multi_item %}
+          <span class="label label-default">{% trans "Multi" %}</span>
+      {% endif %}
       {% if item.price %}
         <span class="label label-info">{% trans "About" %} {{ item.price }}</span>
       {% else %}
