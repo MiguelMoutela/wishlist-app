@@ -24,8 +24,8 @@ class Item(models.Model):
     description = models.TextField(blank=True,
                                    verbose_name=_('Item description'))
 
-    price = models.DecimalField(null=True, max_digits=11, decimal_places=2,
-                                default=None,
+    price = models.DecimalField(null=True, blank=True, max_digits=11,
+                                decimal_places=2, default=None,
                                 verbose_name=_('Estimated price'))
 
     already_given = models.BooleanField(default=False)
