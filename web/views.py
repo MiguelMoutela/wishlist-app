@@ -74,7 +74,7 @@ def item_create(request, user_pk=None):
 
     data = {
         'form': form,
-        'user': user
+        'current_user': user
     }
     return render_to_response('new.html', data,
                               context_instance=RequestContext(request))
@@ -94,7 +94,8 @@ def item_edit(request, pk):
         form = ItemForm(instance=item)
 
     data = {
-        'form': form
+        'form': form,
+        'edit': True
     }
 
     return render_to_response('new.html', data,
