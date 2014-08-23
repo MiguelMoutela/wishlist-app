@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-03 11:08+0200\n"
+"POT-Creation-Date: 2014-08-23 13:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,47 +24,55 @@ msgstr "Popis položky"
 msgid "More people can buy this item"
 msgstr "Může koupit více lidí"
 
-#: web/forms.py:19 web/models.py:29
+#: web/forms.py:19 web/models.py:60
 msgid "Estimated price"
 msgstr "Odhadovaná cena"
 
-#: web/forms.py:24 web/models.py:65
+#: web/forms.py:24 web/models.py:96
 msgid "My contribution"
 msgstr "Můj příspěvek"
 
-#: web/models.py:8 wishlist/settings.py:164
+#: web/models.py:9 wishlist/settings.py:164
 msgid "English"
 msgstr "Anglicky"
 
-#: web/models.py:9 wishlist/settings.py:165
+#: web/models.py:10 wishlist/settings.py:165
 msgid "Czech"
 msgstr "Česky"
 
-#: web/models.py:23
+#: web/models.py:15
+msgid "birthday"
+msgstr "narozeniny"
+
+#: web/models.py:16
+msgid "nameday"
+msgstr "svatek"
+
+#: web/models.py:54
 msgid "Item name"
 msgstr "Název položky"
 
-#: web/models.py:25
+#: web/models.py:56
 msgid "Item description"
 msgstr "Popis položky"
 
-#: web/utils.py:61
+#: web/utils.py:68
 msgid "This week on the wishlist"
 msgstr "Tento tyden na wishlistu"
 
-#: web/views.py:19
+#: web/views.py:25
 msgid "Welcome"
 msgstr "Vítejte"
 
-#: web/views.py:91 web/views.py:115 web/views.py:186 web/views.py:229
+#: web/views.py:97 web/views.py:121 web/views.py:192 web/views.py:235
 msgid "Saved"
 msgstr "Uloženo"
 
-#: web/views.py:146
+#: web/views.py:152
 msgid "You've committed to buy an item."
 msgstr "Rozhodli jste se koupit tuto položku"
 
-#: web/views.py:158
+#: web/views.py:164
 msgid "You've been removed."
 msgstr "Odebrali jsme vás."
 
@@ -107,7 +115,8 @@ msgstr "Vymazat"
 msgid "Home"
 msgstr "Domů"
 
-#: web/templates/email.html:2
+#: web/templates/email.html:2 web/templates/occasion.html:2
+#: web/templates/own-occasion.html:2
 msgid "Hello there!"
 msgstr "Ahoj!"
 
@@ -167,6 +176,31 @@ msgstr "Upravit"
 #: web/templates/new.html:14
 msgid "Add new item"
 msgstr "Přidat novou položku"
+
+#: web/templates/occasion.html:4
+#, python-format
+msgid ""
+"\n"
+"%(first_name)s will have a %(occasion)s in two weeks.  Do you already have a "
+"present for them?\n"
+"\n"
+"Check out their wishlist:\n"
+msgstr ""
+"\n"
+"%(first_name)s bude za 14 dni mit %(occasion)s.  Uz pro ne mate darek?"
+"\n"
+"Podivejte se na jejich wishlist:\n"
+
+#: web/templates/own-occasion.html:4
+#, python-format
+msgid ""
+"\n"
+"You have a %(occasion)s in two weeks.  Is your wishlist up to date?\n"
+"\n"
+msgstr ""
+"\n"
+"Za 14 dni budete mit %(occasion)s.  Mate dost veci na wishlistu?\n"
+"\n"
 
 #: web/templates/person-detail.html:7
 msgid "list of things"

@@ -1,0 +1,9 @@
+{% load i18n %}
+{% trans "Hello there!" %}
+
+{% blocktrans with first_name=user.first_name %}
+{{ first_name }} will have a {{ occasion }} in two weeks.  Do you already have a present for them?
+
+Check out their wishlist:
+{% endblocktrans %}
+http://{{ DOMAIN }}/list/{{ user }}

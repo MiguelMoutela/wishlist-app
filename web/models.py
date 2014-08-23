@@ -1,4 +1,5 @@
 import misaka
+from datetime import datetime, timedelta
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
@@ -10,12 +11,42 @@ LANGUAGES = (
 )
 
 
+OCCASION_TYPES = (
+    ('b', _('birthday')),
+    ('n', _('nameday')),
+)
+
+
 class UserProfile(models.Model):
     language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
     user = models.OneToOneField(User)
 
     def __unicode__(self):
         return 'Profile for {}'.format(self.user.username)
+
+
+class OccasionManager(models.Manager):
+
+    def in_2_weeks(self, date=None):
+        if not date:
+            date = datetime.utcnow()
+
+        two_weeks = date + timedelta(days=14)
+
+        month = two_weeks.month
+        day = two_weeks.day
+
+        return self.filter(month=month, day=day)
+
+
+class Occasion(models.Model):
+    user = models.ForeignKey(User)
+    name = models.CharField(max_length=1, choices=OCCASION_TYPES)
+
+    month = models.IntegerField()
+    day = models.IntegerField()
+
+    objects = OccasionManager()
 
 
 class Item(models.Model):

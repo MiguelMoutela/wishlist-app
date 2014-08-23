@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Item, Buy, UserProfile
+from models import Item, Buy, UserProfile, Occasion
 
 
 class ItemAdmin(admin.ModelAdmin):
@@ -10,6 +10,14 @@ class ItemAdmin(admin.ModelAdmin):
         model = Item
 
 
+class OccasionAdmin(admin.ModelAdmin):
+    list_display = ('name', 'user', 'month', 'day',)
+
+    class Meta:
+        model = Occasion
+
+
 admin.site.register(Item, ItemAdmin)
 admin.site.register(Buy)
 admin.site.register(UserProfile)
+admin.site.register(Occasion, OccasionAdmin)
