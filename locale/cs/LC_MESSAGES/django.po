@@ -144,7 +144,7 @@ msgstr "se rozhodl koupit položku"
 
 #: web/templates/given.html:15 web/templates/index.html:58
 msgid "Mark as given"
-msgstr "Obdrzeno | venovano"
+msgstr "Venovano"
 
 #: web/templates/index.html:9
 msgid "List of people"
