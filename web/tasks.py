@@ -2,7 +2,7 @@ from celery.schedules import crontab
 from celery.task import periodic_task
 from django.contrib.auth.models import User
 
-from utils import send_weekly_email_for_user, send_occasion_email
+from utils import send_weekly_email_for_user
 from models import Occasion
 
 
@@ -17,5 +17,6 @@ def send_occasion_emails():
     """
     Daily at 8pm
     """
+    from utils import send_occasion_email
     for o in Occasion.objects.in_2_weeks():
         send_occasion_email(o)
