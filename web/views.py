@@ -126,6 +126,27 @@ def item_delete(request, pk):
 
 
 @login_required
+def item_given(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+
+    if item.user.pk != request.user.pk:
+        raise Http404
+
+    if request.method == 'POST':
+        item.already_given = True
+        item.save()
+        messages.success(request, _("Saved"))
+        return redirect('/')
+
+    data = {
+        'item': item
+    }
+
+    return render_to_response('given.html', data,
+                              context_instance=RequestContext(request))
+
+
+@login_required
 def item_enough(request, pk):
     item = get_object_or_404(Item, pk=pk)
 

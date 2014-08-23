@@ -28,6 +28,8 @@ urlpatterns = patterns('',
         name='item-edit'),
     url(r'^item/(?P<pk>[0-9]+)/delete$', 'web.views.item_delete',
         name='item-delete'),
+    url(r'^item/(?P<pk>[0-9]+)/given$', 'web.views.item_given',
+        name='item-given'),
 
     url(r'^item/(?P<pk>[0-9]+)/enough$', 'web.views.item_enough',
         name='item-enough'),

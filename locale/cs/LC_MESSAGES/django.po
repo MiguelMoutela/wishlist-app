@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-23 14:21+0200\n"
+"POT-Creation-Date: 2014-08-23 14:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,7 +64,8 @@ msgstr "Tento tyden na wishlistu"
 msgid "Welcome"
 msgstr "Vítejte"
 
-#: web/views.py:94 web/views.py:141 web/views.py:212 web/views.py:255
+#: web/views.py:94 web/views.py:138 web/views.py:162 web/views.py:233
+#: web/views.py:276
 msgid "Saved"
 msgstr "Uloženo"
 
@@ -73,11 +74,11 @@ msgstr "Uloženo"
 msgid "Deleted"
 msgstr "Smazano"
 
-#: web/views.py:172
+#: web/views.py:193
 msgid "You've committed to buy an item."
 msgstr "Rozhodli jste se koupit tuto položku"
 
-#: web/views.py:184
+#: web/views.py:205
 msgid "You've been removed."
 msgstr "Odebrali jsme vás."
 
@@ -108,7 +109,7 @@ msgstr "Přispět na dárek \"%(item)s\", který si přeje %(name)s"
 msgid "Submit"
 msgstr "Odeslat"
 
-#: web/templates/delete.html:7
+#: web/templates/delete.html:7 web/templates/given.html:7
 msgid "Are you sure?"
 msgstr "Jste si jistý?"
 
@@ -116,7 +117,7 @@ msgstr "Jste si jistý?"
 msgid "Delete"
 msgstr "Vymazat"
 
-#: web/templates/delete.html:20
+#: web/templates/delete.html:20 web/templates/given.html:20
 msgid "Home"
 msgstr "Domů"
 
@@ -140,6 +141,11 @@ msgstr "Někdo přidal překvapení pro "
 #: web/templates/email.html:7 web/templates/index.html:31
 msgid "committed to buy an item"
 msgstr "se rozhodl koupit položku"
+
+#: web/templates/given.html:15 web/templates/index.html:58
+#, fuzzy
+msgid "Mark as given"
+msgstr "Obdrzeno | venovano"
 
 #: web/templates/index.html:9
 msgid "List of people"
@@ -295,3 +301,7 @@ msgstr "Heslo znovu"
 #: web/templates/registration/password_done.html:8
 msgid "Password changed"
 msgstr "Heslo změněno"
+
+#, fuzzy
+#~ msgid "I have received this"
+#~ msgstr "Oznac tohle jako ze uz ten darek ten clovek dostal."

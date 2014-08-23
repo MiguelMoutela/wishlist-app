@@ -55,6 +55,7 @@
         </form>
       {% endif %}
       <a href="{% url 'item-delete' item.pk %}" class="btn btn-danger btn-sm">{% trans "Delete" %}</a>
+      <a href="{% url 'item-given' item.pk %}" class="btn btn-success btn-sm">{% trans "Mark as given" %}</a>
       <hr>
     {% endfor %}
 
