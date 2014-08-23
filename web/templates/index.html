@@ -54,6 +54,7 @@
           <input type="submit" class="btn btn-primary btn-sm" value="{% trans "I have enough" %}" />
         </form>
       {% endif %}
+      <a href="{% url 'item-delete' item.pk %}" class="btn btn-danger btn-sm">{% trans "Delete" %}</a>
       <hr>
     {% endfor %}
 

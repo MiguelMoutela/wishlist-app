@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-23 13:14+0200\n"
+"POT-Creation-Date: 2014-08-23 14:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,23 +56,28 @@ msgstr "Název položky"
 msgid "Item description"
 msgstr "Popis položky"
 
-#: web/utils.py:68
+#: web/utils.py:79
 msgid "This week on the wishlist"
 msgstr "Tento tyden na wishlistu"
 
-#: web/views.py:25
+#: web/views.py:19
 msgid "Welcome"
 msgstr "Vítejte"
 
-#: web/views.py:97 web/views.py:121 web/views.py:192 web/views.py:235
+#: web/views.py:94 web/views.py:141 web/views.py:212 web/views.py:255
 msgid "Saved"
 msgstr "Uloženo"
 
-#: web/views.py:152
+#: web/views.py:117
+#, fuzzy
+msgid "Deleted"
+msgstr "Smazano"
+
+#: web/views.py:172
 msgid "You've committed to buy an item."
 msgstr "Rozhodli jste se koupit tuto položku"
 
-#: web/views.py:164
+#: web/views.py:184
 msgid "You've been removed."
 msgstr "Odebrali jsme vás."
 
@@ -107,11 +112,11 @@ msgstr "Odeslat"
 msgid "Are you sure?"
 msgstr "Jste si jistý?"
 
-#: web/templates/delete.html:13
+#: web/templates/delete.html:15 web/templates/index.html:57
 msgid "Delete"
 msgstr "Vymazat"
 
-#: web/templates/delete.html:18
+#: web/templates/delete.html:20
 msgid "Home"
 msgstr "Domů"
 
@@ -187,8 +192,7 @@ msgid ""
 "Check out their wishlist:\n"
 msgstr ""
 "\n"
-"%(first_name)s bude za 14 dni mit %(occasion)s.  Uz pro ne mate darek?"
-"\n"
+"%(first_name)s bude za 14 dni mit %(occasion)s.  Uz pro ne mate darek?\n"
 "Podivejte se na jejich wishlist:\n"
 
 #: web/templates/own-occasion.html:4

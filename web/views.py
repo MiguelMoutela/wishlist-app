@@ -84,6 +84,9 @@ def item_create(request, user_pk=None):
 def item_edit(request, pk):
     item = get_object_or_404(Item, pk=pk)
 
+    if item.user.pk != request.user.pk:
+        raise Http404
+
     if request.method == 'POST':
         form = ItemForm(request.POST, instance=item)
         if form.is_valid():
@@ -103,8 +106,31 @@ def item_edit(request, pk):
 
 
 @login_required
+def item_delete(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+
+    if item.user.pk != request.user.pk:
+        raise Http404
+
+    if request.method == 'POST':
+        item.delete()
+        messages.success(request, _("Deleted"))
+        return redirect('/')
+
+    data = {
+        'item': item
+    }
+
+    return render_to_response('delete.html', data,
+                              context_instance=RequestContext(request))
+
+
+@login_required
 def item_enough(request, pk):
     item = get_object_or_404(Item, pk=pk)
+
+    if item.user.pk != request.user.pk:
+        raise Http404
 
     if request.method == 'POST':
         if not item.multi_item:
