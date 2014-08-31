@@ -82,7 +82,7 @@ def send_weekly_email_for_user(user):
     send_email_to_user(user, subject, email)
 
 
-def send_occassion_email(occasion):
+def send_occasion_email(occasion):
     user = occasion.user
 
     to = User.objects.all().exclude(username__in=DUMMY_USERS).exclude(
