@@ -17,6 +17,11 @@ OCCASION_TYPES = (
 )
 
 
+def users_for_user(user):
+    groups = user.groups.all()
+    return User.objects.filter(groups__in=groups).exclude(pk=user.pk)
+
+
 class UserProfile(models.Model):
     language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
     user = models.OneToOneField(User)

@@ -6,7 +6,7 @@ from django.http import Http404
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
-from models import Buy, Item
+from models import Buy, Item, users_for_user
 from forms import ItemForm, ContributionForm
 from utils import get_latest_for_user
 
@@ -21,7 +21,7 @@ def index(request):
                                 already_given=False,
                                 surprise=False).order_by('created')
 
-    user_objs = User.objects.exclude(pk=request.user.pk).order_by('first_name')
+    user_objs = users_for_user(request.user).order_by('first_name')
     users = []
 
     for user in user_objs:
