@@ -79,6 +79,9 @@ def send_weekly_email_for_user(user):
     subject = _('This week on the wishlist')
     email = render_weekly_email_for_user(user)
 
+    if not email:
+        return
+
     send_email_to_user(user, subject, email)
 
 
