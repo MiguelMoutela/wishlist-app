@@ -19,7 +19,8 @@ OCCASION_TYPES = (
 
 def users_for_user(user):
     groups = user.groups.all()
-    return User.objects.filter(groups__in=groups).exclude(pk=user.pk)
+    return User.objects.filter(
+        groups__in=groups).exclude(pk=user.pk).distinct()
 
 
 class UserProfile(models.Model):
