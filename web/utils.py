@@ -3,7 +3,7 @@ from contextlib import contextmanager
 
 from django.utils import translation
 from django.core.mail import send_mail
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
@@ -91,17 +91,19 @@ def send_occasion_email(occasion):
     to = users_for_user(user).exclude(username__in=DUMMY_USERS).exclude(
         username=user.username)
 
-    with user_language('cs'):
-        name = occasion.get_name_display()
-
     for t in to:
         with user_language(t.userprofile.language):
-            subject = '%s will have a %s' % (user.first_name, name)
+            name = occasion.get_name_display()
+
+            subject_filler = _('will have')
+            subject = ' '.join([user.first_name, subject_filler, name])
+
             email = render_to_string('occasion.html', {
                 'user': user,
                 'occasion': name,
                 'DOMAIN': DOMAIN
             })
+
             send_email_to_user(t, subject, email)
 
     with user_language(user.userprofile.language):

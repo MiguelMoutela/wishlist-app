@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-23 14:55+0200\n"
+"POT-Creation-Date: 2014-09-29 08:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,11 +24,11 @@ msgstr "Popis položky"
 msgid "More people can buy this item"
 msgstr "Může koupit více lidí"
 
-#: web/forms.py:19 web/models.py:60
+#: web/forms.py:19 web/models.py:66
 msgid "Estimated price"
 msgstr "Odhadovaná cena"
 
-#: web/forms.py:24 web/models.py:96
+#: web/forms.py:24 web/models.py:102
 msgid "My contribution"
 msgstr "Můj příspěvek"
 
@@ -48,17 +48,21 @@ msgstr "narozeniny"
 msgid "nameday"
 msgstr "svatek"
 
-#: web/models.py:54
+#: web/models.py:60
 msgid "Item name"
 msgstr "Název položky"
 
-#: web/models.py:56
+#: web/models.py:62
 msgid "Item description"
 msgstr "Popis položky"
 
 #: web/utils.py:79
 msgid "This week on the wishlist"
 msgstr "Tento tyden na wishlistu"
+
+#: web/utils.py:99
+msgid "will have"
+msgstr "bude mit"
 
 #: web/views.py:19
 msgid "Welcome"
@@ -197,7 +201,7 @@ msgid ""
 "Check out their wishlist:\n"
 msgstr ""
 "\n"
-"%(first_name)s bude za 14 dni mit %(occasion)s.  Uz pro ne mate darek?\n"
+"%(first_name)s bude mit za 14 dni %(occasion)s.  Uz pro ne mate darek?\n"
 "Podivejte se na jejich wishlist:\n"
 
 #: web/templates/own-occasion.html:4
