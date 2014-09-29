@@ -6,7 +6,6 @@ from django.core.mail import send_mail
 from django.utils.translation import ugettext as _
 from django.conf import settings
 from django.template.loader import render_to_string
-from django.contrib.auth.models import User
 
 from models import Buy, Item, users_for_user
 
@@ -107,6 +106,9 @@ def send_occasion_email(occasion):
             send_email_to_user(t, subject, email)
 
     with user_language(user.userprofile.language):
+
+        name = occasion.get_name_display()
+        subject = ' '.join([_('You will have a'), name])
         email = render_to_string('own-occasion.html', {
             'occasion': name,
             'DOMAIN': DOMAIN
