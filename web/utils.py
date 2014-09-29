@@ -8,7 +8,7 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 
-from models import Buy, Item
+from models import Buy, Item, users_for_user
 
 
 DOMAIN = getattr(settings, 'DOMAIN')
@@ -88,7 +88,7 @@ def send_weekly_email_for_user(user):
 def send_occasion_email(occasion):
     user = occasion.user
 
-    to = User.objects.all().exclude(username__in=DUMMY_USERS).exclude(
+    to = users_for_user(user).exclude(username__in=DUMMY_USERS).exclude(
         username=user.username)
 
     with user_language('cs'):
