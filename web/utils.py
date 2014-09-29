@@ -67,7 +67,7 @@ def send_email_to_user(user, subject, message):
         translation.activate(user.userprofile.language)
 
         send_mail(subject, message, 'wishlist@wishlist.pokorny.ca',
-                  [user.email], fail_silently=False)
+                  [user.email], fail_silently=True)
     finally:
         translation.activate(original_language)
 
