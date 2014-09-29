@@ -95,7 +95,7 @@ def send_occasion_email(occasion):
         with user_language(t.userprofile.language):
             name = occasion.get_name_display()
 
-            subject_filler = _('will have')
+            subject_filler = _('will have a')
             subject = ' '.join([user.first_name, subject_filler, name])
 
             email = render_to_string('occasion.html', {
