@@ -30,7 +30,10 @@ def index(request):
             'count': user.item_set.filter(already_given=False).count()
         })
 
-    latest = get_latest_for_user(request.user)
+    if request.user.username in DUMMY_USERS:
+        latest = []
+    else:
+        latest = get_latest_for_user(request.user)
 
     data = {
         'items': items,
