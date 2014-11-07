@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-29 08:58+0200\n"
+"POT-Creation-Date: 2014-11-07 13:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,9 +56,13 @@ msgstr "Název položky"
 msgid "Item description"
 msgstr "Popis položky"
 
-#: web/utils.py:79
+#: web/utils.py:78
 msgid "This week on the wishlist"
 msgstr "Tento tyden na wishlistu"
+
+#: web/utils.py:97 web/management/commands/run_lang.py:18
+msgid "will have a"
+msgstr "bude mit"
 
 #: web/utils.py:111
 msgid "You will have a"
@@ -68,21 +72,21 @@ msgstr "Budete mit"
 msgid "Welcome"
 msgstr "Vítejte"
 
-#: web/views.py:94 web/views.py:138 web/views.py:162 web/views.py:233
-#: web/views.py:276
+#: web/views.py:97 web/views.py:141 web/views.py:165 web/views.py:236
+#: web/views.py:279
 msgid "Saved"
 msgstr "Uloženo"
 
-#: web/views.py:117
+#: web/views.py:120
 #, fuzzy
 msgid "Deleted"
 msgstr "Smazano"
 
-#: web/views.py:193
+#: web/views.py:196
 msgid "You've committed to buy an item."
 msgstr "Rozhodli jste se koupit tuto položku"
 
-#: web/views.py:205
+#: web/views.py:208
 msgid "You've been removed."
 msgstr "Odebrali jsme vás."
 
