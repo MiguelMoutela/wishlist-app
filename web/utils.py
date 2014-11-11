@@ -75,13 +75,15 @@ def send_weekly_email_for_user(user):
     if not user.email:
         return
 
-    subject = _('This week on the wishlist')
-    email = render_weekly_email_for_user(user)
+    with user_language(user.userprofile.language):
 
-    if not email:
-        return
+        subject = _('This week on the wishlist')
+        email = render_weekly_email_for_user(user)
 
-    send_email_to_user(user, subject, email)
+        if not email:
+            return
+
+        send_email_to_user(user, subject, email)
 
 
 def send_occasion_email(occasion):
