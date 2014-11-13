@@ -2,15 +2,50 @@
 {% load i18n %}
 {% load wishlist_extras %}
 
+{% block js %}
+<script type="text/javascript">
+  $(function() {
+      var tr = {
+        hide: '{{ HIDE }}',
+        show: '{{ SHOW }}'
+      };
+
+      var hidden = false;
+      var $toggle = $('#toggle');
+
+      $toggle.text(tr.hide);
+
+      $toggle.click(function() {
+        if (hidden) {
+          $('.taken').show();
+          hidden = false;
+          $toggle.text(tr.hide);
+        } else {
+          $('.taken').hide();
+          hidden = true;
+          $toggle.text(tr.show);
+        }
+        return false;
+      });
+  });
+</script>
+{% endblock %}
+
 {% block content %}
 <h1>
     {{ person.first_name }} - {% trans "list of things" %}
     <a href="{% url "item-create" person.pk %}" class="btn btn-primary">{% trans "Add a surprise" %}</a>
 </h1>
+
+<p>
+  <i class="glyphicon glyphicon-pencil"></i>
+<a id="toggle" href></a>
+</p>
+
 <hr>
 
 {% for item in items %}
-<div class="item row">
+<div class="item row{% if item.buying %} taken{% endif %}">
   <h3{% if item.surprise %} class="text-danger"{% endif %}>
       {% if item.surprise %}
         <span class="glyphicon glyphicon-exclamation-sign"

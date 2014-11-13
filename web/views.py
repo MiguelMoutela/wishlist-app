@@ -13,6 +13,9 @@ from utils import get_latest_for_user
 
 DUMMY_USERS = getattr(settings, 'DUMMY_USERS', [])
 
+HIDE = _('Hide taken')
+SHOW = _('Show taken')
+
 
 @login_required
 def index(request):
@@ -211,7 +214,9 @@ def person_detail(request, username):
     data = {
         'person': person,
         'items': Item.objects.filter(user=person, already_given=False),
-        'myBuying': Item.objects.filter(buy__user=request.user)
+        'myBuying': Item.objects.filter(buy__user=request.user),
+        'HIDE': HIDE,
+        'SHOW': SHOW
     }
     return render_to_response('person-detail.html', data,
                               context_instance=RequestContext(request))

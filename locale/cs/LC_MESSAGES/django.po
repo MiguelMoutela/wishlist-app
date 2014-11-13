@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-07 13:42+0100\n"
+"POT-Creation-Date: 2014-11-13 11:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,53 +56,61 @@ msgstr "Název položky"
 msgid "Item description"
 msgstr "Popis položky"
 
-#: web/utils.py:78
+#: web/utils.py:80
 msgid "This week on the wishlist"
 msgstr "Tento tyden na wishlistu"
 
-#: web/utils.py:97 web/management/commands/run_lang.py:18
+#: web/utils.py:99
 msgid "will have a"
 msgstr "bude mit"
 
-#: web/utils.py:111
+#: web/utils.py:113
 msgid "You will have a"
 msgstr "Budete mit"
 
-#: web/views.py:19
+#: web/views.py:16
+msgid "Hide taken"
+msgstr "Skryt zabrane"
+
+#: web/views.py:17
+msgid "Show taken"
+msgstr "Ukazat zabrane"
+
+#: web/views.py:22
 msgid "Welcome"
 msgstr "Vítejte"
 
-#: web/views.py:97 web/views.py:141 web/views.py:165 web/views.py:236
-#: web/views.py:279
+#: web/views.py:100 web/views.py:144 web/views.py:168 web/views.py:241
+#: web/views.py:284
 msgid "Saved"
 msgstr "Uloženo"
 
-#: web/views.py:120
+#: web/views.py:123
 #, fuzzy
 msgid "Deleted"
 msgstr "Smazano"
 
-#: web/views.py:196
+#: web/views.py:199
 msgid "You've committed to buy an item."
 msgstr "Rozhodli jste se koupit tuto položku"
 
-#: web/views.py:208
+#: web/views.py:211
 msgid "You've been removed."
 msgstr "Odebrali jsme vás."
 
-#: web/templates/base.html:23
+#: web/templates/base.html:24
 msgid "Change password"
 msgstr "Změnit heslo"
 
-#: web/templates/base.html:24
+#: web/templates/base.html:25
 msgid "What you're buying"
 msgstr "Co koupíte"
 
-#: web/templates/base.html:28
+#: web/templates/base.html:29
 msgid "Log out"
 msgstr "Odhlasit"
 
-#: web/templates/base.html:30 web/templates/registration/login.html:8
+#: web/templates/base.html:31 web/templates/registration/login.html:8
 msgid "Log in"
 msgstr "Přihlásit"
 
@@ -219,60 +227,60 @@ msgstr ""
 "Za 14 dni budete mit %(occasion)s.  Mate dost veci na wishlistu?\n"
 "\n"
 
-#: web/templates/person-detail.html:7
+#: web/templates/person-detail.html:36
 msgid "list of things"
 msgstr "seznam věcí"
 
-#: web/templates/person-detail.html:8
+#: web/templates/person-detail.html:37
 msgid "Add a surprise"
 msgstr "Přidat překvapení"
 
-#: web/templates/person-detail.html:19
+#: web/templates/person-detail.html:54
 #, python-format
 msgid "This is surprise, do not tell %(name)s!"
 msgstr "Tohle je překvapení, ne, že se to dozví %(name)s!"
 
-#: web/templates/person-detail.html:23
+#: web/templates/person-detail.html:58
 msgid "Multi"
 msgstr "Multi"
 
-#: web/templates/person-detail.html:26
+#: web/templates/person-detail.html:61
 msgid "About"
 msgstr "Asi"
 
-#: web/templates/person-detail.html:31
+#: web/templates/person-detail.html:66
 msgid "Taken by"
 msgstr "Zabráno - "
 
-#: web/templates/person-detail.html:33
+#: web/templates/person-detail.html:68
 msgid "me"
 msgstr "já"
 
-#: web/templates/person-detail.html:41
+#: web/templates/person-detail.html:76
 msgid "Still free"
 msgstr "Stále volné"
 
-#: web/templates/person-detail.html:44
+#: web/templates/person-detail.html:79
 msgid "Free"
 msgstr "Volné"
 
-#: web/templates/person-detail.html:71
+#: web/templates/person-detail.html:106
 msgid "Change my contribution"
 msgstr "Změnit můj příspěvek"
 
-#: web/templates/person-detail.html:72
+#: web/templates/person-detail.html:107
 msgid "Don't contribute anymore"
 msgstr "Už nepřispívat"
 
-#: web/templates/person-detail.html:74
+#: web/templates/person-detail.html:109
 msgid "Don't buy anymore"
 msgstr "Už nekupovat"
 
-#: web/templates/person-detail.html:79
+#: web/templates/person-detail.html:114
 msgid "Commit to buy"
 msgstr "Koupit"
 
-#: web/templates/person-detail.html:82
+#: web/templates/person-detail.html:117
 msgid "Contribute"
 msgstr "Přispět"
 
