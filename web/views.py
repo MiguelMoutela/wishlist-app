@@ -30,7 +30,8 @@ def index(request):
     for user in user_objs:
         items = user.item_set.filter(already_given=False)
         items_count = items.count()
-        free = items.count() - Buy.objects.filter(item__in=items).count()
+        buy_count = Buy.objects.filter(item__in=items).distinct('item').count()
+        free = items.count() - buy_count
 
         users.append({
             'user': user,
