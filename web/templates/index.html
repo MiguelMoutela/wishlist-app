@@ -11,7 +11,7 @@
       {% for user in users %}
         <li>
           <a href="{% url 'person-detail' user.user.username %}">
-            {{ user.user.first_name }} ({{ user.count }})
+            {{ user.user.first_name }} ({{ user.free }}/{{ user.count }})
           </a>
         </li>
       {% endfor %}

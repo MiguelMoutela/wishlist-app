@@ -28,9 +28,14 @@ def index(request):
     users = []
 
     for user in user_objs:
+        items = user.item_set.filter(already_given=False)
+        items_count = items.count()
+        free = items.count() - Buy.objects.filter(item__in=items).count()
+
         users.append({
             'user': user,
-            'count': user.item_set.filter(already_given=False).count()
+            'count': items_count,
+            'free': free
         })
 
     if request.user.username in DUMMY_USERS:
