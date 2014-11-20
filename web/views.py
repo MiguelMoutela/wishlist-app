@@ -232,35 +232,66 @@ def person_detail(request, username):
 @login_required
 def shopping(request):
     if request.method == 'POST':
-        pk = request.POST.get('item_pk', None)
+        action = request.POST.get('action', None)
 
-        if not pk:
+        if not action:
             raise Http404
 
-        item = get_object_or_404(Item, pk=pk)
+        if action == 'given':
 
-        if item.multi_item:
-            raise Http404
+            pk = request.POST.get('item_pk', None)
 
-        item.already_given = True
-        item.save()
+            if not pk:
+                raise Http404
+
+            item = get_object_or_404(Item, pk=pk)
+
+            if item.multi_item:
+                raise Http404
+
+            item.already_given = True
+            item.save()
+
+        if action == 'purchase':
+
+            pk = request.POST.get('buy_pk', None)
+
+            if not pk:
+                raise Http404
+
+            buy = get_object_or_404(Buy, pk=pk)
+            buy.purchased = True
+            buy.save()
+
+        if action == 'unpurchase':
+
+            pk = request.POST.get('buy_pk', None)
+
+            if not pk:
+                raise Http404
+
+            buy = get_object_or_404(Buy, pk=pk)
+            buy.purchased = False
+            buy.save()
 
         messages.success(request, _("Saved"))
         return redirect('shopping')
 
     else:
-        items = Buy.objects.filter(user=request.user)
-        buying_items = []
+        items = Buy.objects.filter(user=request.user,
+                                   item__already_given=False)
 
-        for b in items:
-            if b.item.already_given:
-                continue
+        to_purchase = items.filter(purchased=False)
+        purchased = items.filter(purchased=True)
 
-            buying_items.append(b.item)
+        print to_purchase
+        print purchased
 
         data = {
-            'items': buying_items
+            'to_purchase': to_purchase,
+            'purchased': purchased
         }
+        print data
         return render_to_response('shopping.html', data,
                                   context_instance=RequestContext(request))
 

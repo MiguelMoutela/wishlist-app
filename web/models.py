@@ -97,6 +97,8 @@ class Buy(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
+    purchased = models.BooleanField(default=False)
+
     amount = models.DecimalField(null=True, max_digits=11, decimal_places=2,
                                  default=None,
                                  verbose_name=_('My contribution'))

@@ -5,22 +5,66 @@
 
 <div class="row">
 
-    {% for item in items %}
-      <h4>{{ item.name }} - {{ item.user.first_name }}</h4>
-      <p>{{ item.html|safe }}</p>
+  <div class="col-md-6">
+
+    <h1>{% trans "To purchase" %}</h1>
+
+    {% for buy in to_purchase %}
+      <h4>{{ buy.item.name }} - {{ buy.item.user.first_name }}</h4>
+      <p>{{ buy.item.html|safe }}</p>
       <p>
         <form method="post">
           {% csrf_token %}
-          <input type="hidden" name="item_pk" value="{{ item.pk }}" />
-          {% if not item.multi_item %}
+          <input type="hidden" name="item_pk" value="{{ buy.item.pk }}" />
+          <input type="hidden" name="action" value="given" />
+          {% if not buy.item.multi_item %}
             <input class="btn btn-primary" type="submit" value="{% trans 'Mark this as already given' %}" />
           {% endif %}
+        </form>
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="buy_pk" value="{{ buy.pk }}" />
+          <input type="hidden" name="action" value="purchase" />
+          <input class="btn btn-primary" type="submit" value="{% trans 'Mark this as purchased' %}" />
         </form>
       </p>
       <hr>
     {% empty %}
       <h4>Nothing yet</h4>
     {% endfor %}
+
+  </div>
+
+  <div class="col-md-6">
+
+    <h1>{% trans "Purchased" %}</h1>
+
+    {% for buy in purchased %}
+      <h4>{{ buy.item.name }} - {{ buy.item.user.first_name }}</h4>
+      <p>{{ buy.item.html|safe }}</p>
+      <p>
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="item_pk" value="{{ buy.item.pk }}" />
+          <input type="hidden" name="action" value="given" />
+          {% if not buy.item.multi_item %}
+            <input class="btn btn-primary" type="submit" value="{% trans 'Mark this as already given' %}" />
+          {% endif %}
+        </form>
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="buy_pk" value="{{ buy.pk }}" />
+          <input type="hidden" name="action" value="unpurchase" />
+          <input class="btn btn-primary" type="submit" value="{% trans 'Mark this as to purchase' %}" />
+        </form>
+      </p>
+      <hr>
+    {% empty %}
+      <h4>Nothing yet</h4>
+    {% endfor %}
+
+
+  </div>
 
 </div>
 
