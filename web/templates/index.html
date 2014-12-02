@@ -24,11 +24,11 @@
     {% for event in latest %}
       <li>
       {% if event.type == 'item' %}
-      {{ event.user.first_name }} {% trans "added an item" %}: {{ event.name }}
+        {{ event.user.first_name }} {% trans "added an item" %}: "{{ event.name }}"
       {% elif event.type == 'surprise' %}
         {% trans "Someone added a surprise for " %} {{ event.user.first_name }}
       {% else %}
-        {{ event.user.first_name }} {% trans "committed to buy an item" %}
+        {{ event.user.first_name }} {% trans "committed to buy an item" %}: "{{ event.item.name }}"
         <a href="{% url 'person-detail' event.item.user.username %}">{% trans "Details" %}</a>
       {% endif %}
       <br><small>{{ event.created }}</small>

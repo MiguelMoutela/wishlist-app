@@ -284,14 +284,10 @@ def shopping(request):
         to_purchase = items.filter(purchased=False)
         purchased = items.filter(purchased=True)
 
-        print to_purchase
-        print purchased
-
         data = {
             'to_purchase': to_purchase,
             'purchased': purchased
         }
-        print data
         return render_to_response('shopping.html', data,
                                   context_instance=RequestContext(request))
 
