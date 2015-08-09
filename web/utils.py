@@ -26,11 +26,15 @@ def user_language(language):
 
 
 def get_latest_for_user(user, delta=None):
-    latest_items = Item.objects.exclude(
-        user=user).order_by('-created')
+    # Peers doesn't include self
+    peers = users_for_user(user)
 
-    latest_buys = Buy.objects.exclude(user=user).exclude(
-        item__user=user).order_by('-created')
+    # All of the things that my peers want
+    latest_items = Item.objects.filter(user__in=peers).order_by('-created')
+
+    # All of the buys that make peers are making for my peers
+    latest_buys = Buy.objects.filter(user__in=peers,
+                                     user__item__in=peers).order_by('-created')
 
     if delta:
         latest_items = latest_items.filter(created__gt=delta)
