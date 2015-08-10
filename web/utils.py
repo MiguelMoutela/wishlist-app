@@ -34,7 +34,7 @@ def get_latest_for_user(user, delta=None):
 
     # All of the buys that make peers are making for my peers
     latest_buys = Buy.objects.filter(user__in=peers,
-                                     user__item__in=peers).order_by('-created')
+                                     item__in=peers).order_by('-created')
 
     if delta:
         latest_items = latest_items.filter(created__gt=delta)
