@@ -64,6 +64,9 @@ def render_weekly_email_for_user(user):
 
 
 def send_email_to_user(user, subject, message):
+    if not user.email:
+        return
+
     original_language = translation.get_language()
 
     try:
