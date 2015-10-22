@@ -181,6 +181,12 @@ DOMAIN = 'www.example.com'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+SOUTH_MIGRATION_MODULES = {
+    'djcelery': 'djcelery.south_migrations',
+}
+
+
+
 import djcelery
 djcelery.setup_loader()
 

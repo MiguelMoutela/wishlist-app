@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from utils import (
     send_weekly_email_for_user, send_weekly_nagging_email_for_user
 )
-from models import Occasion
+from models import Occasion, get_users_to_nag
 
 
 @periodic_task(run_every=crontab(hour=19, minute=0, day_of_week=1))
@@ -26,8 +26,5 @@ def send_occasion_emails():
 
 @periodic_task(run_every=crontab(hour=19, minute=0, day_of_week=5))
 def send_nagging_emails():
-    for user in User.objects.all():
-        item_count = user.item_set.filter(already_given=False).count()
-
-        if item_count == 0:
-            send_weekly_nagging_email_for_user(user)
+    for user in get_users_to_nag():
+        send_weekly_nagging_email_for_user(user)

@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from contextlib import contextmanager
 
+from django.contrib.auth.models import User
 from django.utils import translation
 from django.core.mail import send_mail
 from django.utils.translation import ugettext as _

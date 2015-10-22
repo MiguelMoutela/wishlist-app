@@ -23,6 +23,14 @@ def users_for_user(user):
         groups__in=groups).exclude(pk=user.pk).distinct()
 
 
+def get_users_to_nag():
+    for user in User.objects.all():
+        item_count = user.item_set.filter(already_given=False).count()
+
+        if item_count == 0:
+            yield user
+
+
 class UserProfile(models.Model):
     language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
     user = models.OneToOneField(User)
