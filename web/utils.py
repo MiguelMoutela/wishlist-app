@@ -63,6 +63,15 @@ def render_weekly_email_for_user(user):
     return email
 
 
+def render_weekly_nagging_email_for_user(user):
+    email = render_to_string('nagging_email.html', {
+        'user': user,
+        'DOMAIN': DOMAIN
+    })
+
+    return email
+
+
 def send_email_to_user(user, subject, message):
     if not user.email:
         return
@@ -86,6 +95,21 @@ def send_weekly_email_for_user(user):
 
         subject = _('This week on the wishlist')
         email = render_weekly_email_for_user(user)
+
+        if not email:
+            return
+
+        send_email_to_user(user, subject, email)
+
+
+def send_weekly_nagging_email_for_user(user):
+    if not user.email:
+        return
+
+    with user_language(user.userprofile.language):
+
+        subject = _('Your list is empty')
+        email = render_weekly_nagging_email_for_user(user)
 
         if not email:
             return

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-13 11:02+0100\n"
+"POT-Creation-Date: 2015-10-22 16:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,15 +28,15 @@ msgstr "Může koupit více lidí"
 msgid "Estimated price"
 msgstr "Odhadovaná cena"
 
-#: web/forms.py:24 web/models.py:102
+#: web/forms.py:24 web/models.py:104
 msgid "My contribution"
 msgstr "Můj příspěvek"
 
-#: web/models.py:9 wishlist/settings.py:164
+#: web/models.py:9 wishlist/settings.py:167
 msgid "English"
 msgstr "Anglicky"
 
-#: web/models.py:10 wishlist/settings.py:165
+#: web/models.py:10 wishlist/settings.py:168
 msgid "Czech"
 msgstr "Česky"
 
@@ -56,15 +56,19 @@ msgstr "Název položky"
 msgid "Item description"
 msgstr "Popis položky"
 
-#: web/utils.py:80
+#: web/utils.py:96
 msgid "This week on the wishlist"
 msgstr "Tento tyden na wishlistu"
 
-#: web/utils.py:99
+#: web/utils.py:111
+msgid "Your list is empty"
+msgstr "Váš seznam je prázdný"
+
+#: web/utils.py:130
 msgid "will have a"
 msgstr "bude mit"
 
-#: web/utils.py:113
+#: web/utils.py:144
 msgid "You will have a"
 msgstr "Budete mit"
 
@@ -80,21 +84,21 @@ msgstr "Ukazat zabrane"
 msgid "Welcome"
 msgstr "Vítejte"
 
-#: web/views.py:100 web/views.py:144 web/views.py:168 web/views.py:241
-#: web/views.py:284
+#: web/views.py:107 web/views.py:151 web/views.py:175 web/views.py:277
+#: web/views.py:318
 msgid "Saved"
 msgstr "Uloženo"
 
-#: web/views.py:123
+#: web/views.py:130
 #, fuzzy
 msgid "Deleted"
 msgstr "Smazano"
 
-#: web/views.py:199
+#: web/views.py:206
 msgid "You've committed to buy an item."
 msgstr "Rozhodli jste se koupit tuto položku"
 
-#: web/views.py:211
+#: web/views.py:218
 msgid "You've been removed."
 msgstr "Odebrali jsme vás."
 
@@ -129,7 +133,7 @@ msgstr "Odeslat"
 msgid "Are you sure?"
 msgstr "Jste si jistý?"
 
-#: web/templates/delete.html:15 web/templates/index.html:57
+#: web/templates/delete.html:15 web/templates/index.html:56
 msgid "Delete"
 msgstr "Vymazat"
 
@@ -137,8 +141,8 @@ msgstr "Vymazat"
 msgid "Home"
 msgstr "Domů"
 
-#: web/templates/email.html:2 web/templates/occasion.html:2
-#: web/templates/own-occasion.html:2
+#: web/templates/email.html:2 web/templates/nagging_email.html:2
+#: web/templates/occasion.html:2 web/templates/own-occasion.html:2
 msgid "Hello there!"
 msgstr "Ahoj!"
 
@@ -146,19 +150,23 @@ msgstr "Ahoj!"
 msgid "Here is what happened on the wishlist last week:"
 msgstr "Podivejte se co se minuly tyden stalo na wishlistu:"
 
-#: web/templates/email.html:7 web/templates/index.html:27
+#: web/templates/email.html:7 web/templates/index.html:26
 msgid "added an item"
 msgstr "přidal položku"
 
-#: web/templates/email.html:7 web/templates/index.html:29
+#: web/templates/email.html:7 web/templates/index.html:28
 msgid "Someone added a surprise for "
 msgstr "Někdo přidal překvapení pro "
 
-#: web/templates/email.html:7 web/templates/index.html:31
+#: web/templates/email.html:7 web/templates/index.html:30
 msgid "committed to buy an item"
 msgstr "se rozhodl koupit položku"
 
-#: web/templates/given.html:15 web/templates/index.html:58
+#: web/templates/email.html:12 web/templates/nagging_email.html:8
+msgid "Have a nice day!"
+msgstr "Hezký den!"
+
+#: web/templates/given.html:15 web/templates/index.html:57
 msgid "Mark as given"
 msgstr "Venovano"
 
@@ -174,21 +182,29 @@ msgstr "Novinky"
 msgid "Details"
 msgstr "Podrobnosti"
 
-#: web/templates/index.html:43
+#: web/templates/index.html:42
 msgid "Your list"
 msgstr "Váš seznam"
 
-#: web/templates/index.html:44
+#: web/templates/index.html:43
 msgid "Add new"
 msgstr "Přidat nové"
 
-#: web/templates/index.html:50
+#: web/templates/index.html:49
 msgid "Edit"
 msgstr "Upravit"
 
-#: web/templates/index.html:54
+#: web/templates/index.html:53
 msgid "I have enough"
 msgstr "Už toho mám dost"
+
+#: web/templates/nagging_email.html:4
+msgid ""
+"It looks like there is nothing on your wishlist right now.  Why not spend a "
+"few minutes, and add some ideas?"
+msgstr ""
+"Vypadá to, že nemáš nic na seznamu.  Proč nestrávit pár minut a připad "
+"nějaké nápady?"
 
 #: web/templates/new.html:10
 #, python-format
@@ -284,8 +300,26 @@ msgstr "Koupit"
 msgid "Contribute"
 msgstr "Přispět"
 
-#: web/templates/shopping.html:16
+#: web/templates/shopping.html:10
+msgid "To purchase"
+msgstr "K zakoupeni"
+
+#: web/templates/shopping.html:21 web/templates/shopping.html.py:51
 msgid "Mark this as already given"
+msgstr "Oznac tohle jako ze uz ten darek ten clovek dostal."
+
+#: web/templates/shopping.html:28
+#, fuzzy
+msgid "Mark this as purchased"
+msgstr "Oznac tohle jako ze uz ten darek ten clovek dostal."
+
+#: web/templates/shopping.html:40
+msgid "Purchased"
+msgstr "Zakoukeno"
+
+#: web/templates/shopping.html:58
+#, fuzzy
+msgid "Mark this as to purchase"
 msgstr "Oznac tohle jako ze uz ten darek ten clovek dostal."
 
 #: web/templates/registration/login.html:14
