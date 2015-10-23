@@ -24,7 +24,7 @@ def send_occasion_emails():
         send_occasion_email(o)
 
 
-@periodic_task(run_every=crontab(hour=19, minute=0, day_of_week=5))
+@periodic_task(run_every=crontab(hour=20, minute=0, day_of_week=5))
 def send_nagging_emails():
     for user in get_users_to_nag():
         send_weekly_nagging_email_for_user(user)
