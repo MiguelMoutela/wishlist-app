@@ -17,7 +17,11 @@ class OccasionAdmin(admin.ModelAdmin):
         model = Occasion
 
 
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('user', 'uuid', 'subscribed_to_email',)
+
+
 admin.site.register(Item, ItemAdmin)
 admin.site.register(Buy)
-admin.site.register(UserProfile)
+admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Occasion, OccasionAdmin)

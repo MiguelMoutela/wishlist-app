@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-22 16:40+0200\n"
+"POT-Creation-Date: 2015-10-23 14:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,51 +24,55 @@ msgstr "Popis položky"
 msgid "More people can buy this item"
 msgstr "Může koupit více lidí"
 
-#: web/forms.py:19 web/models.py:66
+#: web/forms.py:19 web/models.py:87
 msgid "Estimated price"
 msgstr "Odhadovaná cena"
 
-#: web/forms.py:24 web/models.py:104
+#: web/forms.py:24 web/models.py:125
 msgid "My contribution"
 msgstr "Můj příspěvek"
 
-#: web/models.py:9 wishlist/settings.py:167
+#: web/models.py:13 wishlist/settings.py:167
 msgid "English"
 msgstr "Anglicky"
 
-#: web/models.py:10 wishlist/settings.py:168
+#: web/models.py:14 wishlist/settings.py:168
 msgid "Czech"
 msgstr "Česky"
 
-#: web/models.py:15
+#: web/models.py:19
 msgid "birthday"
 msgstr "narozeniny"
 
-#: web/models.py:16
+#: web/models.py:20
 msgid "nameday"
 msgstr "svatek"
 
-#: web/models.py:60
+#: web/models.py:81
 msgid "Item name"
 msgstr "Název položky"
 
-#: web/models.py:62
+#: web/models.py:83
 msgid "Item description"
 msgstr "Popis položky"
 
-#: web/utils.py:96
+#: web/utils.py:91
+msgid "Unsubscribe"
+msgstr "Odhlásit od odběru emailů"
+
+#: web/utils.py:107
 msgid "This week on the wishlist"
 msgstr "Tento tyden na wishlistu"
 
-#: web/utils.py:111
+#: web/utils.py:122
 msgid "Your list is empty"
 msgstr "Váš seznam je prázdný"
 
-#: web/utils.py:130
+#: web/utils.py:141
 msgid "will have a"
 msgstr "bude mit"
 
-#: web/utils.py:144
+#: web/utils.py:155
 msgid "You will have a"
 msgstr "Budete mit"
 
@@ -321,6 +325,14 @@ msgstr "Zakoukeno"
 #, fuzzy
 msgid "Mark this as to purchase"
 msgstr "Oznac tohle jako ze uz ten darek ten clovek dostal."
+
+#: web/templates/unsubscribed.html:7
+msgid "Done!"
+msgstr "Hotovo!"
+
+#: web/templates/unsubscribed.html:8
+msgid "You will no longer receive emails from the wishlist."
+msgstr "Už nebudete dostávat emaily od wishlistu."
 
 #: web/templates/registration/login.html:14
 msgid "Username"

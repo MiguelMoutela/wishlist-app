@@ -1,8 +1,12 @@
-import misaka
 from datetime import datetime, timedelta
+from uuid import uuid4
+
+import misaka
+
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 
 LANGUAGES = (
@@ -31,12 +35,21 @@ def get_users_to_nag():
             yield user
 
 
+def get_uuid():
+    return str(uuid4()).replace('-', '')
+
+
 class UserProfile(models.Model):
     language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
     user = models.OneToOneField(User)
+    subscribed_to_email = models.BooleanField(default=True)
+    uuid = models.CharField(max_length=32, default=get_uuid)
 
     def __unicode__(self):
         return 'Profile for {}'.format(self.user.username)
+
+    def get_unsubsribe_link(self):
+        return reverse('unsubscribe', args=(self.uuid,))
 
 
 class OccasionManager(models.Manager):

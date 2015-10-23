@@ -6,7 +6,7 @@ from django.http import Http404
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
-from models import Buy, Item, users_for_user
+from models import Buy, Item, users_for_user, UserProfile
 from forms import ItemForm, ContributionForm
 from utils import get_latest_for_user
 
@@ -326,4 +326,14 @@ def contribute(request, pk):
         'item': item
     }
     return render_to_response('contribution.html', data,
+                              context_instance=RequestContext(request))
+
+
+def unsubscribe(request, uuid):
+    profile = get_object_or_404(UserProfile, uuid=uuid)
+
+    profile.subscribed_to_email = False
+    profile.save()
+
+    return render_to_response('unsubscribed.html', {},
                               context_instance=RequestContext(request))

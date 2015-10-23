@@ -17,6 +17,9 @@ urlpatterns = patterns('',
         {'template_name': 'registration/password_done.html'},
         name='password-change-done'),
 
+    url(r'^unsubscribe/(?P<uuid>[a-zA-Z0-9]+)/$', 'web.views.unsubscribe',
+        name='unsubscribe'),
+
     url(r'^$', 'web.views.index', name='index'),
     url(r'^new$', 'web.views.item_create', name='item-create'),
     url(r'^new/(?P<user_pk>[0-9]+)$', "web.views.item_create", name='item-create'),

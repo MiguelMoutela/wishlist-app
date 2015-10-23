@@ -77,10 +77,20 @@ def send_email_to_user(user, subject, message):
     if not user.email:
         return
 
+    profile = user.userprofile
+
+    if not profile.subscribed_to_email:
+        return
+
     original_language = translation.get_language()
 
     try:
-        translation.activate(user.userprofile.language)
+        translation.activate(profile.language)
+
+        link = 'http://' + DOMAIN + profile.get_unsubsribe_link()
+        unsubscribe_text = '\n\n\n\n' + _('Unsubscribe') + '\n\n' + link
+
+        message += unsubscribe_text
 
         send_mail(subject, message, 'wishlist@wishlist.pokorny.ca',
                   [user.email], fail_silently=False)
