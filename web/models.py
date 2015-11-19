@@ -130,3 +130,9 @@ class Buy(models.Model):
     @property
     def type(self):
         return 'buy'
+
+
+class Visit(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User)
+    path = models.CharField(max_length=255)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Item, Buy, UserProfile, Occasion
+from models import Item, Buy, UserProfile, Occasion, Visit
 
 
 class ItemAdmin(admin.ModelAdmin):
@@ -21,7 +21,12 @@ class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'uuid', 'subscribed_to_email',)
 
 
+class VisitAdmin(admin.ModelAdmin):
+    list_display = ('user', 'path', 'created',)
+
+
 admin.site.register(Item, ItemAdmin)
 admin.site.register(Buy)
+admin.site.register(Visit, VisitAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Occasion, OccasionAdmin)

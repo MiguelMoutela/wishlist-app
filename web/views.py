@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -336,4 +337,32 @@ def unsubscribe(request, uuid):
     profile.save()
 
     return render_to_response('unsubscribed.html', {},
+                              context_instance=RequestContext(request))
+
+
+def visits(request):
+    users = User.objects.all().order_by('username')
+    now = datetime.now()
+    week_ago = now - timedelta(days=7)
+    day_ago = now - timedelta(hours=24)
+
+    visits = []
+
+    for user in users:
+        last_week = user.visit_set.filter(created__lt=now,
+                                          created__gt=week_ago).count()
+        last_day = user.visit_set.filter(created__lt=now,
+                                         created__gt=day_ago).count()
+
+        visits.append({
+            'user': user,
+            'last_week': last_week,
+            'last_day': last_day
+        })
+
+    data = {
+        'visits': visits
+    }
+
+    return render_to_response('visits.html', data,
                               context_instance=RequestContext(request))
