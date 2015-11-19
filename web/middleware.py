@@ -10,4 +10,7 @@ class VisitMiddleware(object):
         if 'admin' in request.path:
             return
 
+        if 'visits' in request.path:
+            return
+
         Visit.objects.create(user=request.user, path=request.path)
