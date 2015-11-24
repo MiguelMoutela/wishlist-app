@@ -353,11 +353,13 @@ def visits(request):
                                           created__gt=week_ago).count()
         last_day = user.visit_set.filter(created__lt=now,
                                          created__gt=day_ago).count()
+        total = user.visit_set.all().count()
 
         visits.append({
             'user': user,
             'last_week': last_week,
-            'last_day': last_day
+            'last_day': last_day,
+            'total': total
         })
 
     data = {

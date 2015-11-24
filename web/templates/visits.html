@@ -11,6 +11,7 @@
       <th>Name</th>
       <th>Last 24h</th>
       <th>Last 7 days</th>
+      <th>Total</th>
     </thead>
 
     <tbody>
@@ -20,6 +21,7 @@
           <td>{{ visit.user.username }}</td>
           <td>{{ visit.last_day }}</td>
           <td>{{ visit.last_week }}</td>
+          <td>{{ visit.total }}</td>
         </tr>
       {% endfor %}
 
