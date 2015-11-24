@@ -349,6 +349,9 @@ def visits(request):
     visits = []
 
     for user in users:
+        if user.username in DUMMY_USERS:
+            continue
+
         last_week = user.visit_set.filter(created__lt=now,
                                           created__gt=week_ago).count()
         last_day = user.visit_set.filter(created__lt=now,
