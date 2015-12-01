@@ -31,7 +31,8 @@
           <br>
           <a href="{% url 'person-detail' event.item.user.username %}">{% trans "Details" %}</a>
         {% endif %}
-        <br><small>{{ event.created }}</small>
+        <br>
+        <small class="ago" title="{{ event.created|date:"c" }}Z">{{ event.created }}</small>
         <hr>
       </div>
     {% endfor %}

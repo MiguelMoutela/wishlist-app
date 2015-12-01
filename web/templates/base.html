@@ -9,6 +9,17 @@
 <link rel="stylesheet" href="{% static "css/custom.css" %}" type="text/css">
 <script type="text/javascript" src="{% static "js/jquery-2.1.0.min.js" %}"></script>
 <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.timeago.js" %}"></script>
+{% if user.is_authenticated %}
+  {% if user.userprofile.language == 'cs' %}
+    <script type="text/javascript" src="{% static "js/jquery.timeago.cs.js" %}"></script>
+  {% endif %}
+{% endif %}
+<script>
+$(function() {
+    $('.ago').timeago();
+});
+</script>
 {% block js %}{% endblock %}
 </head>
 <body>
