@@ -27,7 +27,8 @@ CONTRIBUTION_ATTRS = {
 
 class ItemForm(forms.ModelForm):
 
-    name = forms.CharField(widget=forms.TextInput(attrs=NAME_ATTRS))
+    name = forms.CharField(widget=forms.TextInput(attrs=NAME_ATTRS),
+                           label=_('Item name'))
     description = forms.CharField(
         required=False,
         widget=forms.Textarea(attrs=DESCRIPTION_ATTRS))

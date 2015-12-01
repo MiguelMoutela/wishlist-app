@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-23 14:37+0200\n"
+"POT-Creation-Date: 2015-12-02 00:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,15 +28,19 @@ msgstr "Může koupit více lidí"
 msgid "Estimated price"
 msgstr "Odhadovaná cena"
 
-#: web/forms.py:24 web/models.py:125
+#: web/forms.py:24 web/models.py:126
 msgid "My contribution"
 msgstr "Můj příspěvek"
 
-#: web/models.py:13 wishlist/settings.py:167
+#: web/forms.py:31 web/models.py:81
+msgid "Item name"
+msgstr "Název položky"
+
+#: web/models.py:13 wishlist/settings.py:168
 msgid "English"
 msgstr "Anglicky"
 
-#: web/models.py:14 wishlist/settings.py:168
+#: web/models.py:14 wishlist/settings.py:169
 msgid "Czech"
 msgstr "Česky"
 
@@ -47,10 +51,6 @@ msgstr "narozeniny"
 #: web/models.py:20
 msgid "nameday"
 msgstr "svatek"
-
-#: web/models.py:81
-msgid "Item name"
-msgstr "Název položky"
 
 #: web/models.py:83
 msgid "Item description"
@@ -76,33 +76,33 @@ msgstr "bude mit"
 msgid "You will have a"
 msgstr "Budete mit"
 
-#: web/views.py:16
+#: web/views.py:17
 msgid "Hide taken"
 msgstr "Skryt zabrane"
 
-#: web/views.py:17
+#: web/views.py:18
 msgid "Show taken"
 msgstr "Ukazat zabrane"
 
-#: web/views.py:22
+#: web/views.py:23
 msgid "Welcome"
 msgstr "Vítejte"
 
-#: web/views.py:107 web/views.py:151 web/views.py:175 web/views.py:277
-#: web/views.py:318
+#: web/views.py:108 web/views.py:152 web/views.py:176 web/views.py:278
+#: web/views.py:319
 msgid "Saved"
 msgstr "Uloženo"
 
-#: web/views.py:130
+#: web/views.py:131
 #, fuzzy
 msgid "Deleted"
 msgstr "Smazano"
 
-#: web/views.py:206
+#: web/views.py:207
 msgid "You've committed to buy an item."
 msgstr "Rozhodli jste se koupit tuto položku"
 
-#: web/views.py:218
+#: web/views.py:219
 msgid "You've been removed."
 msgstr "Odebrali jsme vás."
 
