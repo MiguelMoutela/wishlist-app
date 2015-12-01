@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-02 00:02+0100\n"
+"POT-Creation-Date: 2015-12-02 00:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,8 +13,9 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: web/forms.py:7
-msgid "Name"
-msgstr "Název"
+#, fuzzy
+msgid "Item Name"
+msgstr "Název položky"
 
 #: web/forms.py:12
 msgid "Description"
@@ -32,10 +33,6 @@ msgstr "Odhadovaná cena"
 msgid "My contribution"
 msgstr "Můj příspěvek"
 
-#: web/forms.py:31 web/models.py:81
-msgid "Item name"
-msgstr "Název položky"
-
 #: web/models.py:13 wishlist/settings.py:168
 msgid "English"
 msgstr "Anglicky"
@@ -51,6 +48,10 @@ msgstr "narozeniny"
 #: web/models.py:20
 msgid "nameday"
 msgstr "svatek"
+
+#: web/models.py:81
+msgid "Item name"
+msgstr "Název položky"
 
 #: web/models.py:83
 msgid "Item description"
@@ -362,6 +363,9 @@ msgstr "Heslo znovu"
 #: web/templates/registration/password_done.html:8
 msgid "Password changed"
 msgstr "Heslo změněno"
+
+#~ msgid "Name"
+#~ msgstr "Název"
 
 #, fuzzy
 #~ msgid "I have received this"

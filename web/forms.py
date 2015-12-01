@@ -4,7 +4,7 @@ from models import Item
 
 NAME_ATTRS = {
     'class': 'form-control',
-    'placeholder': _('Name')
+    'placeholder': _('Item Name')
 }
 
 DESCRIPTION_ATTRS = {
@@ -27,8 +27,7 @@ CONTRIBUTION_ATTRS = {
 
 class ItemForm(forms.ModelForm):
 
-    name = forms.CharField(widget=forms.TextInput(attrs=NAME_ATTRS),
-                           label=_('Item name'))
+    name = forms.CharField(widget=forms.TextInput(attrs=NAME_ATTRS))
     description = forms.CharField(
         required=False,
         widget=forms.Textarea(attrs=DESCRIPTION_ATTRS))
