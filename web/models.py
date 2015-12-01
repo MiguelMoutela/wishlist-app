@@ -104,7 +104,8 @@ class Item(models.Model):
 
     @property
     def html(self):
-        return misaka.html(self.description, extensions=misaka.EXT_AUTOLINK)
+        html = misaka.html(self.description, extensions=misaka.EXT_AUTOLINK)
+        return html.replace('<a ', '<a target="_blank" ')
 
     @property
     def type(self):
