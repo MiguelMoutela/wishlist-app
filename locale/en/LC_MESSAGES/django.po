@@ -1,227 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-02 00:07+0100\n"
+"POT-Creation-Date: 2015-10-23 14:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: cs\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: web/forms.py:7
-msgid "Item Name"
-msgstr "Název položky"
+msgid "Name"
+msgstr ""
 
 #: web/forms.py:12
 msgid "Description"
-msgstr "Popis položky"
+msgstr ""
 
 #: web/forms.py:15
 msgid "More people can buy this item"
-msgstr "Může koupit více lidí"
+msgstr ""
 
 #: web/forms.py:19 web/models.py:87
 msgid "Estimated price"
-msgstr "Odhadovaná cena"
+msgstr ""
 
-#: web/forms.py:24 web/models.py:126
+#: web/forms.py:24 web/models.py:125
 msgid "My contribution"
-msgstr "Můj příspěvek"
+msgstr ""
 
-#: web/models.py:13 wishlist/settings.py:168
+#: web/models.py:13 wishlist/settings.py:167
 msgid "English"
-msgstr "Anglicky"
+msgstr ""
 
-#: web/models.py:14 wishlist/settings.py:169
+#: web/models.py:14 wishlist/settings.py:168
 msgid "Czech"
-msgstr "Česky"
+msgstr ""
 
 #: web/models.py:19
 msgid "birthday"
-msgstr "narozeniny"
+msgstr ""
 
 #: web/models.py:20
 msgid "nameday"
-msgstr "svatek"
+msgstr ""
 
 #: web/models.py:81
 msgid "Item name"
-msgstr "Název položky"
+msgstr ""
 
 #: web/models.py:83
 msgid "Item description"
-msgstr "Popis položky"
+msgstr ""
 
 #: web/utils.py:91
 msgid "Unsubscribe"
-msgstr "Odhlásit od odběru emailů"
+msgstr ""
 
 #: web/utils.py:107
 msgid "This week on the wishlist"
-msgstr "Tento tyden na wishlistu"
+msgstr ""
 
 #: web/utils.py:122
 msgid "Your list is empty"
-msgstr "Váš seznam je prázdný"
+msgstr ""
 
 #: web/utils.py:141
 msgid "will have a"
-msgstr "bude mit"
+msgstr ""
 
 #: web/utils.py:155
 msgid "You will have a"
-msgstr "Budete mit"
+msgstr ""
+
+#: web/views.py:16
+msgid "Hide taken"
+msgstr ""
 
 #: web/views.py:17
-msgid "Hide taken"
-msgstr "Skryt zabrane"
-
-#: web/views.py:18
 msgid "Show taken"
-msgstr "Ukazat zabrane"
+msgstr ""
 
-#: web/views.py:23
+#: web/views.py:22
 msgid "Welcome"
-msgstr "Vítejte"
+msgstr ""
 
-#: web/views.py:108 web/views.py:152 web/views.py:176 web/views.py:278
-#: web/views.py:319
+#: web/views.py:107 web/views.py:151 web/views.py:175 web/views.py:277
+#: web/views.py:318
 msgid "Saved"
-msgstr "Uloženo"
+msgstr ""
 
-#: web/views.py:131
-#, fuzzy
+#: web/views.py:130
 msgid "Deleted"
-msgstr "Smazano"
+msgstr ""
 
-#: web/views.py:207
+#: web/views.py:206
 msgid "You've committed to buy an item."
-msgstr "Rozhodli jste se koupit tuto položku"
+msgstr ""
 
-#: web/views.py:219
+#: web/views.py:218
 msgid "You've been removed."
-msgstr "Odebrali jsme vás."
+msgstr ""
 
 #: web/templates/base.html:24
 msgid "Change password"
-msgstr "Změnit heslo"
+msgstr ""
 
 #: web/templates/base.html:25
 msgid "What you're buying"
-msgstr "Co koupíte"
+msgstr ""
 
 #: web/templates/base.html:29
 msgid "Log out"
-msgstr "Odhlasit"
+msgstr ""
 
 #: web/templates/base.html:31 web/templates/registration/login.html:8
 msgid "Log in"
-msgstr "Přihlásit"
+msgstr ""
 
 #: web/templates/contribution.html:7
 #, python-format
 msgid "Contribute to %(item)s for %(name)s"
-msgstr "Přispět na dárek \"%(item)s\", který si přeje %(name)s"
+msgstr ""
 
 #: web/templates/contribution.html:22 web/templates/new.html:36
 #: web/templates/registration/login.html:25
 #: web/templates/registration/password_change.html:30
 msgid "Submit"
-msgstr "Odeslat"
+msgstr ""
 
 #: web/templates/delete.html:7 web/templates/given.html:7
 msgid "Are you sure?"
-msgstr "Jste si jistý?"
+msgstr ""
 
 #: web/templates/delete.html:15 web/templates/index.html:56
 msgid "Delete"
-msgstr "Vymazat"
+msgstr ""
 
 #: web/templates/delete.html:20 web/templates/given.html:20
 msgid "Home"
-msgstr "Domů"
+msgstr ""
 
 #: web/templates/email.html:2 web/templates/nagging_email.html:2
 #: web/templates/occasion.html:2 web/templates/own-occasion.html:2
 msgid "Hello there!"
-msgstr "Ahoj!"
+msgstr ""
 
 #: web/templates/email.html:4
 msgid "Here is what happened on the wishlist last week:"
-msgstr "Podivejte se co se minuly tyden stalo na wishlistu:"
+msgstr ""
 
 #: web/templates/email.html:7 web/templates/index.html:26
 msgid "added an item"
-msgstr "přidal položku"
+msgstr ""
 
 #: web/templates/email.html:7 web/templates/index.html:28
 msgid "Someone added a surprise for "
-msgstr "Někdo přidal překvapení pro "
+msgstr ""
 
 #: web/templates/email.html:7 web/templates/index.html:30
 msgid "committed to buy an item"
-msgstr "se rozhodl koupit položku"
+msgstr ""
 
 #: web/templates/email.html:12 web/templates/nagging_email.html:8
 msgid "Have a nice day!"
-msgstr "Hezký den!"
+msgstr ""
 
 #: web/templates/given.html:15 web/templates/index.html:57
 msgid "Mark as given"
-msgstr "Venovano"
+msgstr ""
 
 #: web/templates/index.html:9
 msgid "List of people"
-msgstr "Seznam lidí"
+msgstr ""
 
 #: web/templates/index.html:22
 msgid "Recent events"
-msgstr "Novinky"
+msgstr ""
 
 #: web/templates/index.html:32
 msgid "Details"
-msgstr "Podrobnosti"
+msgstr ""
 
 #: web/templates/index.html:42
 msgid "Your list"
-msgstr "Váš seznam"
+msgstr ""
 
 #: web/templates/index.html:43
 msgid "Add new"
-msgstr "Přidat nové"
+msgstr ""
 
 #: web/templates/index.html:49
 msgid "Edit"
-msgstr "Upravit"
+msgstr ""
 
 #: web/templates/index.html:53
 msgid "I have enough"
-msgstr "Už toho mám dost"
+msgstr ""
 
 #: web/templates/nagging_email.html:4
 msgid ""
 "It looks like there is nothing on your wishlist right now.  Why not spend a "
 "few minutes, and add some ideas?"
 msgstr ""
-"Vypadá to, že nemáš nic na seznamu.  Proč nestrávit pár minut a připad "
-"nějaké nápady?"
 
 #: web/templates/new.html:10
 #, python-format
 msgid "Add new surprise for %(name)s"
-msgstr "Přidat překvapení. To bude %(name)s koukat!"
+msgstr ""
 
 #: web/templates/new.html:12
 msgid "Edit item"
-msgstr "Upravit"
+msgstr ""
 
 #: web/templates/new.html:14
 msgid "Add new item"
-msgstr "Přidat novou položku"
+msgstr ""
 
 #: web/templates/occasion.html:4
 #, python-format
@@ -232,9 +234,6 @@ msgid ""
 "\n"
 "Check out their wishlist:\n"
 msgstr ""
-"\n"
-"%(first_name)s bude mit za 14 dni %(occasion)s.  Uz pro ne mate darek?\n"
-"Podivejte se na jejich wishlist:\n"
 
 #: web/templates/own-occasion.html:4
 #, python-format
@@ -243,129 +242,117 @@ msgid ""
 "You have a %(occasion)s in two weeks.  Is your wishlist up to date?\n"
 "\n"
 msgstr ""
-"\n"
-"Za 14 dni budete mit %(occasion)s.  Mate dost veci na wishlistu?\n"
-"\n"
 
 #: web/templates/person-detail.html:36
 msgid "list of things"
-msgstr "seznam věcí"
+msgstr ""
 
 #: web/templates/person-detail.html:37
 msgid "Add a surprise"
-msgstr "Přidat překvapení"
+msgstr ""
 
 #: web/templates/person-detail.html:54
 #, python-format
 msgid "This is surprise, do not tell %(name)s!"
-msgstr "Tohle je překvapení, ne, že se to dozví %(name)s!"
+msgstr ""
 
 #: web/templates/person-detail.html:58
 msgid "Multi"
-msgstr "Multi"
+msgstr ""
 
 #: web/templates/person-detail.html:61
 msgid "About"
-msgstr "Asi"
+msgstr ""
 
 #: web/templates/person-detail.html:66
 msgid "Taken by"
-msgstr "Zabráno - "
+msgstr ""
 
 #: web/templates/person-detail.html:68
 msgid "me"
-msgstr "já"
+msgstr ""
 
 #: web/templates/person-detail.html:76
 msgid "Still free"
-msgstr "Stále volné"
+msgstr ""
 
 #: web/templates/person-detail.html:79
 msgid "Free"
-msgstr "Volné"
+msgstr ""
 
 #: web/templates/person-detail.html:106
 msgid "Change my contribution"
-msgstr "Změnit můj příspěvek"
+msgstr ""
 
 #: web/templates/person-detail.html:107
 msgid "Don't contribute anymore"
-msgstr "Už nepřispívat"
+msgstr ""
 
 #: web/templates/person-detail.html:109
 msgid "Don't buy anymore"
-msgstr "Už nekupovat"
+msgstr ""
 
 #: web/templates/person-detail.html:114
 msgid "Commit to buy"
-msgstr "Koupit"
+msgstr ""
 
 #: web/templates/person-detail.html:117
 msgid "Contribute"
-msgstr "Přispět"
+msgstr ""
 
 #: web/templates/shopping.html:10
 msgid "To purchase"
-msgstr "K zakoupeni"
+msgstr ""
 
 #: web/templates/shopping.html:21 web/templates/shopping.html.py:51
 msgid "Mark this as already given"
-msgstr "Oznac tohle jako ze uz ten darek ten clovek dostal."
+msgstr ""
 
 #: web/templates/shopping.html:28
-#, fuzzy
 msgid "Mark this as purchased"
-msgstr "Oznac tohle jako ze uz ten darek ten clovek dostal."
+msgstr ""
 
 #: web/templates/shopping.html:40
 msgid "Purchased"
-msgstr "Zakoukeno"
+msgstr ""
 
 #: web/templates/shopping.html:58
-#, fuzzy
 msgid "Mark this as to purchase"
-msgstr "Oznac tohle jako ze uz ten darek ten clovek dostal."
+msgstr ""
 
 #: web/templates/unsubscribed.html:7
 msgid "Done!"
-msgstr "Hotovo!"
+msgstr ""
 
 #: web/templates/unsubscribed.html:8
 msgid "You will no longer receive emails from the wishlist."
-msgstr "Už nebudete dostávat emaily od wishlistu."
+msgstr ""
 
 #: web/templates/registration/login.html:14
 msgid "Username"
-msgstr "Uživatelské jméno"
+msgstr ""
 
 #: web/templates/registration/login.html:20
 #: web/templates/registration/password_change.html:21
 msgid "Password"
-msgstr "Heslo"
+msgstr ""
 
 #: web/templates/registration/logout.html:8
 msgid "Logged out"
-msgstr "Odhlášeno"
+msgstr ""
 
 #: web/templates/registration/password_change.html:8
 msgid "Change your password"
-msgstr "Změnit heslo"
+msgstr ""
 
 #: web/templates/registration/password_change.html:16
 msgid "Old password"
-msgstr "Staré heslo"
+msgstr ""
 
 #: web/templates/registration/password_change.html:26
 msgid "Password again"
-msgstr "Heslo znovu"
+msgstr ""
 
 #: web/templates/registration/password_done.html:8
 msgid "Password changed"
-msgstr "Heslo změněno"
-
-#~ msgid "Name"
-#~ msgstr "Název"
-
-#, fuzzy
-#~ msgid "I have received this"
-#~ msgstr "Oznac tohle jako ze uz ten darek ten clovek dostal."
+msgstr ""
