@@ -43,4 +43,5 @@ urlpatterns = patterns('',
     url(r'^visits$', 'web.views.visits'),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^django-rq/', include('django_rq.urls')),
 )

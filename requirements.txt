@@ -9,7 +9,8 @@ bpython
 gunicorn
 misaka
 django-mailgun
-django-celery
 celery
 redis
 raven
+django-rq
+rq-scheduler
