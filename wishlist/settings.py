@@ -126,7 +126,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'django_rq',
+    'djcelery',
     'south',
     'web',
 )
@@ -185,10 +185,13 @@ DOMAIN = 'www.example.com'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-RQ_QUEUES = {
-    'default': {
-        'HOST': 'localhost',
-        'PORT': 6379,
-        'DB': 3,
-    }
+SOUTH_MIGRATION_MODULES = {
+    'djcelery': 'djcelery.south_migrations',
 }
+
+
+
+import djcelery
+djcelery.setup_loader()
+
+BROKER_URL = 'redis://localhost:6379/3'
