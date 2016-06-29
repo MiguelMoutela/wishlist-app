@@ -1,10 +1,12 @@
 from django.conf.urls import patterns, include, url
+from web.forms import WishlistAuthenticationForm
 
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^accounts/login', 'django.contrib.auth.views.login',
+        {'authentication_form': WishlistAuthenticationForm},
         name='login'),
     url(r'^accounts/logout', 'django.contrib.auth.views.logout',
         {'template_name': 'registration/logout.html'}, name='logout'),
