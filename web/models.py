@@ -3,12 +3,14 @@ from uuid import uuid4
 
 import misaka
 
+from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
 
+DOMAIN = getattr(settings, 'DOMAIN')
 LANGUAGES = (
     ('en', _('English')),
     ('cs', _('Czech')),
@@ -50,6 +52,13 @@ class UserProfile(models.Model):
 
     def get_unsubsribe_link(self):
         return reverse('unsubscribe', args=(self.uuid,))
+
+    def get_magic_link(self):
+        """
+        Clicking this link will magically log the user in
+        """
+        ml = MagicLink.objects.create(user=self.user)
+        return 'https://' + DOMAIN + ml.url
 
 
 class OccasionManager(models.Manager):
@@ -137,3 +146,30 @@ class Visit(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User)
     path = models.CharField(max_length=255)
+
+
+class MagicLink(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User)
+    uuid = models.CharField(max_length=255, default=get_uuid)
+
+    def __unicode__(self):
+        return self.uuid
+
+    @property
+    def is_expired(self):
+        now = datetime.utcnow()
+        return (self.created + timedelta(days=7)) < now
+
+    @property
+    def url(self):
+        return reverse('magic', args=(self.uuid,))
+
+
+class MagicLinkClick(models.Model):
+    link = models.ForeignKey(MagicLink)
+    created = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def user(self):
+        return self.link.user

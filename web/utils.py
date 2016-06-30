@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 from contextlib import contextmanager
 
-from django.contrib.auth.models import User
 from django.utils import translation
 from django.core.mail import send_mail
 from django.utils.translation import ugettext as _
@@ -58,7 +57,9 @@ def render_weekly_email_for_user(user):
     email = render_to_string('email.html', {
         'user': user,
         'latest': latest,
-        'DOMAIN': DOMAIN
+        'DOMAIN': DOMAIN,
+        'URL': user.userprofile.get_magic_link()
+
     })
 
     return email
@@ -67,7 +68,8 @@ def render_weekly_email_for_user(user):
 def render_weekly_nagging_email_for_user(user):
     email = render_to_string('nagging_email.html', {
         'user': user,
-        'DOMAIN': DOMAIN
+        'DOMAIN': DOMAIN,
+        'URL': user.userprofile.get_magic_link()
     })
 
     return email
@@ -144,7 +146,8 @@ def send_occasion_email(occasion):
             email = render_to_string('occasion.html', {
                 'user': user,
                 'occasion': name,
-                'DOMAIN': DOMAIN
+                'DOMAIN': DOMAIN,
+                'URL': t.userprofile.get_magic_link()
             })
 
             send_email_to_user(t, subject, email)
@@ -155,6 +158,7 @@ def send_occasion_email(occasion):
         subject = ' '.join([_('You will have a'), name])
         email = render_to_string('own-occasion.html', {
             'occasion': name,
-            'DOMAIN': DOMAIN
+            'DOMAIN': DOMAIN,
+            'URL': user.userprofile.get_magic_link()
         })
         send_email_to_user(user, subject, email)

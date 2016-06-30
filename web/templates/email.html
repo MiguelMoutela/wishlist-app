@@ -7,6 +7,6 @@
 * {% if event.type == 'item' %}{{ event.user.first_name }} {% trans "added an item" %}: {{ event.name }}{% elif event.type == 'surprise' %}{% trans "Someone added a surprise for " %} {{ event.user.first_name }} {% else %}{{ event.user.first_name }} {% trans "committed to buy an item" %}{% endif %} ({{ event.created }})
 {% endfor %}
 
-http://{{ DOMAIN }}
+{{ URL }}
 
 {% blocktrans %}Have a nice day!{% endblocktrans %}

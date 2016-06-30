@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta
+
 from django.conf import settings
+from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -7,7 +9,10 @@ from django.http import Http404
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
-from models import Buy, Item, users_for_user, UserProfile
+from models import (
+    Buy, Item, users_for_user, UserProfile, MagicLink,
+    MagicLinkClick
+)
 from forms import ItemForm, ContributionForm
 from utils import get_latest_for_user
 
@@ -371,3 +376,18 @@ def visits(request):
 
     return render_to_response('visits.html', data,
                               context_instance=RequestContext(request))
+
+
+def magic(request, uuid):
+    link = get_object_or_404(MagicLink, uuid=uuid)
+    user = link.user
+    user.backend = 'django.contrib.auth.backends.ModelBackend'
+    MagicLinkClick.objects.create(link=link)
+    login(request, link.user)
+
+    next = request.GET.get('next')
+
+    if next:
+        return redirect(next)
+
+    return redirect('index')
