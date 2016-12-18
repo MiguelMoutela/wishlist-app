@@ -97,6 +97,7 @@ class Item(models.Model):
 
     already_given = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, null=True, related_name='creator')
     modified = models.DateTimeField(auto_now=True)
     multi_item = models.BooleanField(default=False)
     surprise = models.BooleanField(default=False)

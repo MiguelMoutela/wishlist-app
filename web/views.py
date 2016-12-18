@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+from django.db import transaction
 from django.conf import settings
 from django.contrib.auth import login
 from django.contrib.auth.models import User
@@ -36,8 +37,9 @@ def index(request):
     for user in user_objs:
         user_items = user.item_set.filter(already_given=False)
         items_count = user_items.count()
-        buy_count = Buy.objects.filter(
-            item__in=user_items).distinct('item').count()
+        buy_count = 0
+        # buy_count = Buy.objects.filter(
+        #     item__in=user_items).distinct('item').count()
         free = user_items.count() - buy_count
 
         users.append({
@@ -62,26 +64,33 @@ def index(request):
 
 
 @login_required
+@transaction.atomic
 def item_create(request, user_pk=None):
+    # NOTE: If user_pk is not None, then we're adding a surprise
+
+    # You can't add a surprise for yourself
     if user_pk is not None and int(user_pk) == request.user.pk:
         raise Http404
 
-    user = None
-    if user_pk is not None:
+    surprise = user_pk is not None
+
+    # If it's a surprise, we need to know who the target is.
+    if surprise:
         user = get_object_or_404(User, pk=user_pk)
+    else:
+        user = None
 
     if request.method == 'POST':
-        surprise = True
-        if user is None:
-            user = request.user
-            surprise = False
 
         form = ItemForm(request.POST)
+
         if form.is_valid():
             obj = form.save(commit=False)
             obj.user = user
             obj.surprise = surprise
+            obj.created_by = request.user
             obj.save()
+
             if surprise:
                 buy = Buy.objects.create(user=request.user, item=obj)
                 buy.save()

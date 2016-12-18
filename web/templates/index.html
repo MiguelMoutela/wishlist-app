@@ -25,7 +25,11 @@
         {% if event.type == 'item' %}
           {{ event.user.first_name }} {% trans "added an item" %}: "{{ event.name }}"
         {% elif event.type == 'surprise' %}
-          {% trans "Someone added a surprise for " %} {{ event.user.first_name }}
+          {% if event.created_by %}
+            {{ event.created_by.first_name }} {% trans "added a surprise for " %} {{ event.user.first_name }}
+          {% else %}
+            {% trans "Someone added a surprise for " %} {{ event.user.first_name }}
+          {% endif %}
         {% else %}
           {{ event.user.first_name }} {% trans "committed to buy an item" %}: "{{ event.item.name }}"
           <br>
