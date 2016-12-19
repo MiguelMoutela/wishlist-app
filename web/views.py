@@ -82,6 +82,9 @@ def item_create(request, user_pk=None):
 
     if request.method == 'POST':
 
+        if not user:
+            user = request.user
+
         form = ItemForm(request.POST)
 
         if form.is_valid():
