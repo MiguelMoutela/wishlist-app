@@ -19,6 +19,7 @@ from utils import get_latest_for_user
 
 
 DUMMY_USERS = getattr(settings, 'DUMMY_USERS', [])
+DEBUG = getattr(settings, 'DEBUG', True)
 
 HIDE = _('Hide taken')
 SHOW = _('Show taken')
@@ -37,9 +38,13 @@ def index(request):
     for user in user_objs:
         user_items = user.item_set.filter(already_given=False)
         items_count = user_items.count()
-        buy_count = 0
-        # buy_count = Buy.objects.filter(
-        #     item__in=user_items).distinct('item').count()
+
+        if DEBUG:
+            buy_count = 0
+        else:
+            buy_count = Buy.objects.filter(
+                item__in=user_items).distinct('item').count()
+
         free = user_items.count() - buy_count
 
         users.append({
