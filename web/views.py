@@ -247,7 +247,7 @@ def person_detail(request, username):
     data = {
         'person': person,
         'items': items,
-        'myBuying': Item.objects.filter(buy__user=request.user),
+        'my_buying': Item.objects.filter(buy__user=request.user),
         'HIDE': HIDE,
         'SHOW': SHOW
     }

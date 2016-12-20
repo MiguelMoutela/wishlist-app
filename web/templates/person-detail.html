@@ -72,7 +72,7 @@
               </span>
               &nbsp;
           {% endfor %}
-          {% if item.multi_item and not item in myBuying %}
+          {% if item.multi_item and not item in my_buying %}
               <span class="label label-success">{% trans "Still free" %}</span>
           {% endif %}
         {% else %}
@@ -103,7 +103,7 @@
 
       <input type="hidden" name="item" value="{{ item.pk }}" />
 
-      {% if item.buying and item in myBuying %}
+      {% if item.buying and item in my_buying %}
         {% if item.price %}
           <a href="{% url "contribute" item.pk %}" class="btn btn-primary">{% trans "Change my contribution" %}</a>
           <input type="submit" value="{% trans "Don't contribute anymore" %}" class="btn btn-danger" />
@@ -111,7 +111,7 @@
           <input type="submit" value="{% trans "Don't buy anymore" %}" class="btn btn-danger" />
         {% endif %}
         <input type="hidden" name="action" value="remove" />
-      {% elif not item.buying or item.multi_item and not item in myBuying  or item.price %}
+      {% elif not item.buying or item.multi_item and not item in my_buying  or item.price %}
         {% if not item.price %}
           <input type="submit" value="{% trans "Commit to buy" %}" class="btn btn-primary" />
         {% endif %}
