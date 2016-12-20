@@ -241,9 +241,12 @@ def person_detail(request, username):
             messages.success(request, _("You've been removed."))
             return redirect('person-detail', username=username)
 
+    items = Item.objects.filter(
+        user=person, already_given=False).order_by('created')
+
     data = {
         'person': person,
-        'items': Item.objects.filter(user=person, already_given=False),
+        'items': items,
         'myBuying': Item.objects.filter(buy__user=request.user),
         'HIDE': HIDE,
         'SHOW': SHOW
