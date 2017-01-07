@@ -61,6 +61,15 @@ $(function() {
   {% endif %}
   {% block content %}
   {% endblock %}
+
+  {% if user.is_authenticated %}
+    <hr>
+    <footer>
+      <div class="container">
+        <p>Wishes fulfilled: {{ fulfilled }}</p>
+      </div>
+    </footer>
+  {% endif %}
 </div>
 </body>
 </html>
