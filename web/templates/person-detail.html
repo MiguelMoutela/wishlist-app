@@ -48,10 +48,12 @@
 <div class="item row{% if item.buying %} taken{% endif %}">
   <h3{% if item.surprise %} class="text-danger"{% endif %}>
       {% if item.surprise %}
-        <span class="glyphicon glyphicon-exclamation-sign"
+
+        <span class="label label-danger"
               data-toggle="tooltip"
               data-placement="right"
               title="{% blocktrans with person.first_name as name %}This is surprise, do not tell {{ name }}!{% endblocktrans %}">
+          {% trans "Surprise" %}
               </span>
       {% endif %} {{ item.name }}
       {% if item.multi_item %}
@@ -127,7 +129,7 @@
 <hr>
 {% endfor %}
 <script type="text/javascript">
-  $("span.glyphicon-exclamation-sign").tooltip();
+  $("span.label-danger").tooltip();
 </script>
 
 {% endblock %}
