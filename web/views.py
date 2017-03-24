@@ -234,11 +234,18 @@ def person_detail(request, username):
                 raise Http404
 
             Buy.objects.filter(user=request.user, item=item).delete()
+
             if item.price and not Buy.objects.filter(item=item).exists():
                 item.price = None
                 item.save()
+                messages.success(request, _("You've been removed."))
 
-            messages.success(request, _("You've been removed."))
+            elif item.surprise:
+                item.delete()
+                messages.success(request, _("Deleted"))
+            else:
+                messages.success(request, _("Done!"))
+
             return redirect('person-detail', username=username)
 
     items = Item.objects.filter(
