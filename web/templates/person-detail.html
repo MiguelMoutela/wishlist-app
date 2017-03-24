@@ -127,6 +127,13 @@
 
 </div>
 <hr>
+
+{% empty %}
+
+<h3>
+  {% blocktrans with person.first_name as name %}{{ name }} already has everything :){% endblocktrans %}
+</h3>
+
 {% endfor %}
 <script type="text/javascript">
   $("span.label-danger").tooltip();
