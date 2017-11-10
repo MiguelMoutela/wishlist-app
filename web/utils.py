@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from contextlib import contextmanager
 
+from django.contrib.auth.models import User
 from django.utils import translation
 from django.core.mail import send_mail
 from django.utils.translation import ugettext as _
@@ -162,3 +163,17 @@ def send_occasion_email(occasion):
             'URL': user.userprofile.get_magic_link()
         })
         send_email_to_user(user, subject, email)
+
+
+def send_christmas_email():
+    users = User.objects.exclude(username__in=DUMMY_USERS)
+
+    for user in users:
+        with user_language(user.userprofile.language):
+            subject = _('Christmas is coming')
+            email = render_to_string('christmas.html', {
+                'user': user,
+                'DOMAIN': DOMAIN,
+                'URL': user.userprofile.get_magic_link()
+            })
+            send_email_to_user(user, subject, email)

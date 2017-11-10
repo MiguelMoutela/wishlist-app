@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-23 14:37+0200\n"
+"POT-Creation-Date: 2017-11-10 14:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,113 +17,133 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: web/forms.py:7
-msgid "Name"
+#: web/forms.py:9
+msgid "Item Name"
 msgstr ""
 
-#: web/forms.py:12
+#: web/forms.py:14
 msgid "Description"
 msgstr ""
 
-#: web/forms.py:15
+#: web/forms.py:17
 msgid "More people can buy this item"
 msgstr ""
 
-#: web/forms.py:19 web/models.py:87
+#: web/forms.py:21 web/models.py:96
 msgid "Estimated price"
 msgstr ""
 
-#: web/forms.py:24 web/models.py:125
+#: web/forms.py:26 web/models.py:136
 msgid "My contribution"
 msgstr ""
 
-#: web/models.py:13 wishlist/settings.py:167
+#: web/models.py:15 wishlist/settings.py:168
 msgid "English"
 msgstr ""
 
-#: web/models.py:14 wishlist/settings.py:168
+#: web/models.py:16 wishlist/settings.py:169
 msgid "Czech"
 msgstr ""
 
-#: web/models.py:19
+#: web/models.py:21
 msgid "birthday"
 msgstr ""
 
-#: web/models.py:20
+#: web/models.py:22
 msgid "nameday"
 msgstr ""
 
-#: web/models.py:81
+#: web/models.py:90
 msgid "Item name"
 msgstr ""
 
-#: web/models.py:83
+#: web/models.py:92
 msgid "Item description"
 msgstr ""
 
-#: web/utils.py:91
+#: web/utils.py:94
 msgid "Unsubscribe"
 msgstr ""
 
-#: web/utils.py:107
+#: web/utils.py:110
 msgid "This week on the wishlist"
 msgstr ""
 
-#: web/utils.py:122
+#: web/utils.py:125
 msgid "Your list is empty"
 msgstr ""
 
-#: web/utils.py:141
+#: web/utils.py:144
 msgid "will have a"
 msgstr ""
 
-#: web/utils.py:155
+#: web/utils.py:159
 msgid "You will have a"
 msgstr ""
 
-#: web/views.py:16
+#: web/utils.py:174
+msgid "Christmas is coming"
+msgstr ""
+
+#: web/views.py:24
 msgid "Hide taken"
 msgstr ""
 
-#: web/views.py:17
+#: web/views.py:25
 msgid "Show taken"
 msgstr ""
 
-#: web/views.py:22
+#: web/views.py:30
 msgid "Welcome"
 msgstr ""
 
-#: web/views.py:107 web/views.py:151 web/views.py:175 web/views.py:277
-#: web/views.py:318
+#: web/views.py:130 web/views.py:174 web/views.py:198 web/views.py:310
+#: web/views.py:351
 msgid "Saved"
 msgstr ""
 
-#: web/views.py:130
+#: web/views.py:153 web/views.py:245
 msgid "Deleted"
 msgstr ""
 
-#: web/views.py:206
+#: web/views.py:229
 msgid "You've committed to buy an item."
 msgstr ""
 
-#: web/views.py:218
+#: web/views.py:241
 msgid "You've been removed."
 msgstr ""
 
-#: web/templates/base.html:24
+#: web/views.py:247 web/templates/unsubscribed.html:7
+msgid "Done!"
+msgstr ""
+
+#: web/templates/base.html:42
 msgid "Change password"
 msgstr ""
 
-#: web/templates/base.html:25
+#: web/templates/base.html:43
 msgid "What you're buying"
 msgstr ""
 
-#: web/templates/base.html:29
+#: web/templates/base.html:47
 msgid "Log out"
 msgstr ""
 
-#: web/templates/base.html:31 web/templates/registration/login.html:8
+#: web/templates/base.html:49 web/templates/registration/login.html:8
 msgid "Log in"
+msgstr ""
+
+#: web/templates/christmas.html:2 web/templates/email.html:2
+#: web/templates/nagging_email.html:2 web/templates/occasion.html:2
+#: web/templates/own-occasion.html:2
+msgid "Hello there!"
+msgstr ""
+
+#: web/templates/christmas.html:4
+msgid ""
+"\n"
+"Christmas is coming.  Is your wishlist up-to-date?\n"
 msgstr ""
 
 #: web/templates/contribution.html:7
@@ -141,17 +161,12 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: web/templates/delete.html:15 web/templates/index.html:56
+#: web/templates/delete.html:15 web/templates/index.html:61
 msgid "Delete"
 msgstr ""
 
 #: web/templates/delete.html:20 web/templates/given.html:20
 msgid "Home"
-msgstr ""
-
-#: web/templates/email.html:2 web/templates/nagging_email.html:2
-#: web/templates/occasion.html:2 web/templates/own-occasion.html:2
-msgid "Hello there!"
 msgstr ""
 
 #: web/templates/email.html:4
@@ -162,11 +177,11 @@ msgstr ""
 msgid "added an item"
 msgstr ""
 
-#: web/templates/email.html:7 web/templates/index.html:28
+#: web/templates/email.html:7 web/templates/index.html:31
 msgid "Someone added a surprise for "
 msgstr ""
 
-#: web/templates/email.html:7 web/templates/index.html:30
+#: web/templates/email.html:7 web/templates/index.html:34
 msgid "committed to buy an item"
 msgstr ""
 
@@ -174,7 +189,7 @@ msgstr ""
 msgid "Have a nice day!"
 msgstr ""
 
-#: web/templates/given.html:15 web/templates/index.html:57
+#: web/templates/given.html:15 web/templates/index.html:62
 msgid "Mark as given"
 msgstr ""
 
@@ -186,23 +201,27 @@ msgstr ""
 msgid "Recent events"
 msgstr ""
 
-#: web/templates/index.html:32
+#: web/templates/index.html:29
+msgid "added a surprise for "
+msgstr ""
+
+#: web/templates/index.html:36
 msgid "Details"
 msgstr ""
 
-#: web/templates/index.html:42
+#: web/templates/index.html:47
 msgid "Your list"
 msgstr ""
 
-#: web/templates/index.html:43
+#: web/templates/index.html:48
 msgid "Add new"
 msgstr ""
 
-#: web/templates/index.html:49
+#: web/templates/index.html:54
 msgid "Edit"
 msgstr ""
 
-#: web/templates/index.html:53
+#: web/templates/index.html:58
 msgid "I have enough"
 msgstr ""
 
@@ -251,53 +270,62 @@ msgstr ""
 msgid "Add a surprise"
 msgstr ""
 
-#: web/templates/person-detail.html:54
+#: web/templates/person-detail.html:55
 #, python-format
 msgid "This is surprise, do not tell %(name)s!"
 msgstr ""
 
-#: web/templates/person-detail.html:58
+#: web/templates/person-detail.html:56
+msgid "Surprise"
+msgstr ""
+
+#: web/templates/person-detail.html:60
 msgid "Multi"
 msgstr ""
 
-#: web/templates/person-detail.html:61
+#: web/templates/person-detail.html:63
 msgid "About"
 msgstr ""
 
-#: web/templates/person-detail.html:66
+#: web/templates/person-detail.html:68
 msgid "Taken by"
 msgstr ""
 
-#: web/templates/person-detail.html:68
+#: web/templates/person-detail.html:70
 msgid "me"
 msgstr ""
 
-#: web/templates/person-detail.html:76
+#: web/templates/person-detail.html:78
 msgid "Still free"
 msgstr ""
 
-#: web/templates/person-detail.html:79
+#: web/templates/person-detail.html:81
 msgid "Free"
 msgstr ""
 
-#: web/templates/person-detail.html:106
+#: web/templates/person-detail.html:110
 msgid "Change my contribution"
 msgstr ""
 
-#: web/templates/person-detail.html:107
+#: web/templates/person-detail.html:111
 msgid "Don't contribute anymore"
 msgstr ""
 
-#: web/templates/person-detail.html:109
+#: web/templates/person-detail.html:113
 msgid "Don't buy anymore"
 msgstr ""
 
-#: web/templates/person-detail.html:114
+#: web/templates/person-detail.html:118
 msgid "Commit to buy"
 msgstr ""
 
-#: web/templates/person-detail.html:117
+#: web/templates/person-detail.html:121
 msgid "Contribute"
+msgstr ""
+
+#: web/templates/person-detail.html:134
+#, python-format
+msgid "%(name)s already has everything :)"
 msgstr ""
 
 #: web/templates/shopping.html:10
@@ -318,10 +346,6 @@ msgstr ""
 
 #: web/templates/shopping.html:58
 msgid "Mark this as to purchase"
-msgstr ""
-
-#: web/templates/unsubscribed.html:7
-msgid "Done!"
 msgstr ""
 
 #: web/templates/unsubscribed.html:8

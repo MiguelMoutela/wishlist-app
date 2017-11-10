@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-24 17:32+0000\n"
+"POT-Creation-Date: 2017-11-10 14:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,25 +56,29 @@ msgstr "Název položky"
 msgid "Item description"
 msgstr "Popis položky"
 
-#: web/utils.py:93
+#: web/utils.py:94
 msgid "Unsubscribe"
 msgstr "Odhlásit od odběru emailů"
 
-#: web/utils.py:109
+#: web/utils.py:110
 msgid "This week on the wishlist"
 msgstr "Tento týden na wishlistu"
 
-#: web/utils.py:124
+#: web/utils.py:125
 msgid "Your list is empty"
 msgstr "Váš seznam je prázdný"
 
-#: web/utils.py:143
+#: web/utils.py:144
 msgid "will have a"
 msgstr "bude mít"
 
-#: web/utils.py:158
+#: web/utils.py:159
 msgid "You will have a"
 msgstr "Budete mít"
+
+#: web/utils.py:174
+msgid "Christmas is coming"
+msgstr "Blíží se Vánoce"
 
 #: web/views.py:24
 msgid "Hide taken"
@@ -126,6 +130,21 @@ msgstr "Odhlásit"
 msgid "Log in"
 msgstr "Přihlásit"
 
+#: web/templates/christmas.html:2 web/templates/email.html:2
+#: web/templates/nagging_email.html:2 web/templates/occasion.html:2
+#: web/templates/own-occasion.html:2
+msgid "Hello there!"
+msgstr "Ahoj!"
+
+#: web/templates/christmas.html:4
+msgid ""
+"\n"
+"Christmas is coming.  Is your wishlist up-to-date?\n"
+msgstr ""
+"\n"
+"Blíží se Vánoce.  Máte dost věcí na wishlistu?\n"
+"\n"
+
 #: web/templates/contribution.html:7
 #, python-format
 msgid "Contribute to %(item)s for %(name)s"
@@ -148,11 +167,6 @@ msgstr "Vymazat"
 #: web/templates/delete.html:20 web/templates/given.html:20
 msgid "Home"
 msgstr "Domů"
-
-#: web/templates/email.html:2 web/templates/nagging_email.html:2
-#: web/templates/occasion.html:2 web/templates/own-occasion.html:2
-msgid "Hello there!"
-msgstr "Ahoj!"
 
 #: web/templates/email.html:4
 msgid "Here is what happened on the wishlist last week:"
