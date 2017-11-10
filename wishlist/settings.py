@@ -175,6 +175,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
     'web.context_processors.fulfilled',
+    'web.context_processors.version',
 )
 
 LOCALE_PATHS = (
