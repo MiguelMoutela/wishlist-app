@@ -185,11 +185,11 @@ def get_users_to_notify_of_new_item(item_pk):
     except Item.DoesNotExist:
         return
 
-    # TODO: Limit to users of the same group yo!
     users_to_notify = users_for_user(item.user)
 
     for user in users_to_notify:
-        if user.userprofile.per_item_email:
+        profile = user.userprofile
+        if profile.subscribed_to_email and profile.per_item_email:
             yield user
 
 
