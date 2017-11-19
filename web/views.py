@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.http import Http404
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404, redirect
+from django.shortcuts import render
 from django.utils.translation import ugettext_lazy as _
 from models import (
     Buy, Item, users_for_user, UserProfile, MagicLink,
@@ -64,8 +65,7 @@ def index(request):
         'users': users,
         'latest': latest[:10]
     }
-    return render_to_response('index.html', data,
-                              context_instance=RequestContext(request))
+    return render(request, 'index.html', data)
 
 
 @login_required
@@ -112,8 +112,7 @@ def item_create(request, user_pk=None):
         'form': form,
         'current_user': user
     }
-    return render_to_response('new.html', data,
-                              context_instance=RequestContext(request))
+    return render(request, 'new.html', data)
 
 
 @login_required
@@ -137,8 +136,7 @@ def item_edit(request, pk):
         'edit': True
     }
 
-    return render_to_response('new.html', data,
-                              context_instance=RequestContext(request))
+    return render(request, 'new.html', data)
 
 
 @login_required
@@ -157,8 +155,7 @@ def item_delete(request, pk):
         'item': item
     }
 
-    return render_to_response('delete.html', data,
-                              context_instance=RequestContext(request))
+    return render(request, 'delete.html', data)
 
 
 @login_required
@@ -178,8 +175,7 @@ def item_given(request, pk):
         'item': item
     }
 
-    return render_to_response('given.html', data,
-                              context_instance=RequestContext(request))
+    return render(request, 'given.html', data)
 
 
 @login_required
@@ -258,8 +254,7 @@ def person_detail(request, username):
         'HIDE': HIDE,
         'SHOW': SHOW
     }
-    return render_to_response('person-detail.html', data,
-                              context_instance=RequestContext(request))
+    return render(request, 'person-detail.html', data)
 
 
 @login_required
@@ -321,8 +316,7 @@ def shopping(request):
             'to_purchase': to_purchase,
             'purchased': purchased
         }
-        return render_to_response('shopping.html', data,
-                                  context_instance=RequestContext(request))
+        return render(request, 'shopping.html', data)
 
 
 @login_required
@@ -358,8 +352,7 @@ def contribute(request, pk):
         'form': form,
         'item': item
     }
-    return render_to_response('contribution.html', data,
-                              context_instance=RequestContext(request))
+    return render(request, 'contribution.html', data)
 
 
 def unsubscribe(request, uuid):
@@ -368,8 +361,7 @@ def unsubscribe(request, uuid):
     profile.subscribed_to_email = False
     profile.save()
 
-    return render_to_response('unsubscribed.html', {},
-                              context_instance=RequestContext(request))
+    return render(request, 'unsubscribed.html', {})
 
 
 def visits(request):
@@ -401,8 +393,7 @@ def visits(request):
         'visits': visits
     }
 
-    return render_to_response('visits.html', data,
-                              context_instance=RequestContext(request))
+    return render(request, 'visits.html', data)
 
 
 def magic(request, uuid):

@@ -1,6 +1,5 @@
-Django==1.6.2
+Django==1.11.7
 Fabric==1.12.0
-South==0.8.2
 paramiko==1.17.2
 psycopg2==2.5.1
 pycrypto==2.6
@@ -10,6 +9,6 @@ gunicorn
 misaka
 django-mailgun
 django-celery
-celery==3.1
+celery
 redis
 raven
