@@ -1,7 +1,7 @@
 Django==1.11.7
 Fabric==1.12.0
 paramiko==1.17.2
-psycopg2==2.5.1
+psycopg2==2.7.3.2
 pycrypto==2.6
 wsgiref==0.1.2
 bpython
