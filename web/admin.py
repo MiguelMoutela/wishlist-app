@@ -20,7 +20,8 @@ class OccasionAdmin(admin.ModelAdmin):
 
 
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'uuid', 'subscribed_to_email',)
+    list_display = ('user', 'uuid', 'subscribed_to_email', 'per_item_email',)
+    list_filter = ('subscribed_to_email', 'per_item_email',)
 
 
 class VisitAdmin(admin.ModelAdmin):
