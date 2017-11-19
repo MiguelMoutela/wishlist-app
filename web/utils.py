@@ -35,7 +35,7 @@ def get_latest_for_user(user, delta=None):
 
     # All of the buys that make peers are making for my peers
     latest_buys = Buy.objects.filter(user__in=peers,
-                                     item__in=peers).order_by('-created')
+                                     item__user__in=peers).order_by('-created')
 
     if delta:
         latest_items = latest_items.filter(created__gt=delta)
@@ -177,3 +177,44 @@ def send_christmas_email():
                 'URL': user.userprofile.get_magic_link()
             })
             send_email_to_user(user, subject, email)
+
+
+def get_users_to_notify_of_new_item(item_pk):
+    try:
+        item = Item.objects.get(pk=item_pk)
+    except Item.DoesNotExist:
+        return
+
+    # TODO: Limit to users of the same group yo!
+    users_to_notify = users_for_user(item.user)
+
+    for user in users_to_notify:
+        if user.userprofile.per_item_email:
+            yield user
+
+
+def render_new_item_notification(item, user):
+    email = render_to_string('new_item_notification.html', {
+        'user': user,
+        'item': item,
+        'DOMAIN': DOMAIN,
+        'URL': user.userprofile.get_magic_link()
+
+    })
+
+    return email
+
+
+def send_new_item_notification_email(item, user):
+    if not user.email:
+        return
+
+    with user_language(user.userprofile.language):
+
+        subject = _('New item on the wishlist')
+        email = render_new_item_notification(item, user)
+
+        if not email:
+            return
+
+        send_email_to_user(user, subject, email)

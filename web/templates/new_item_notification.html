@@ -1,0 +1,14 @@
+{% load i18n %}
+{% trans "Hello there!" %}
+
+{% blocktrans with first_name=user.first_name %}
+{{ first_name }} just added a new item.
+
+"{{ item }}"
+
+Check out their wishlist:
+{% endblocktrans %}
+
+{{ URL }}?next=/list/{{ user }}
+
+{% blocktrans %}Have a nice day!{% endblocktrans %}

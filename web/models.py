@@ -45,6 +45,7 @@ class UserProfile(models.Model):
     language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
     user = models.OneToOneField(User)
     subscribed_to_email = models.BooleanField(default=True)
+    per_item_email = models.BooleanField(default=True)
     uuid = models.CharField(max_length=32, default=get_uuid)
 
     def __unicode__(self):

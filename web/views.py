@@ -17,6 +17,7 @@ from models import (
 )
 from forms import ItemForm, ContributionForm
 from utils import get_latest_for_user
+from tasks import send_new_item_notification_emails
 
 
 DUMMY_USERS = getattr(settings, 'DUMMY_USERS', [])
@@ -98,6 +99,8 @@ def item_create(request, user_pk=None):
             obj.surprise = surprise
             obj.created_by = request.user
             obj.save()
+
+            send_new_item_notification_emails.delay(obj.pk)
 
             if surprise:
                 buy = Buy.objects.create(user=request.user, item=obj)
