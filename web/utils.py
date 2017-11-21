@@ -194,6 +194,7 @@ def get_users_to_notify_of_new_item(item_pk):
 
 
 def render_new_item_notification(item, user):
+    # NOTE: Here 'user' is the person to whom we're sending the email
     email = render_to_string('new_item_notification.html', {
         'user': user,
         'item': item,
