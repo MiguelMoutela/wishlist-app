@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-10 14:50+0000\n"
+"POT-Creation-Date: 2017-11-21 19:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,19 +24,19 @@ msgstr "Popis položky"
 msgid "More people can buy this item"
 msgstr "Může koupit více lidí"
 
-#: web/forms.py:21 web/models.py:96
+#: web/forms.py:21 web/models.py:97
 msgid "Estimated price"
 msgstr "Odhadovaná cena"
 
-#: web/forms.py:26 web/models.py:136
+#: web/forms.py:26 web/models.py:137
 msgid "My contribution"
 msgstr "Můj příspěvek"
 
-#: web/models.py:15 wishlist/settings.py:168
+#: web/models.py:15 wishlist/settings.py:178
 msgid "English"
 msgstr "Anglicky"
 
-#: web/models.py:16 wishlist/settings.py:169
+#: web/models.py:16 wishlist/settings.py:179
 msgid "Czech"
 msgstr "Česky"
 
@@ -48,90 +48,33 @@ msgstr "narozeniny"
 msgid "nameday"
 msgstr "svátek"
 
-#: web/models.py:90
+#: web/models.py:91
 msgid "Item name"
 msgstr "Název položky"
 
-#: web/models.py:92
+#: web/models.py:93
 msgid "Item description"
 msgstr "Popis položky"
 
-#: web/utils.py:94
-msgid "Unsubscribe"
-msgstr "Odhlásit od odběru emailů"
-
-#: web/utils.py:110
-msgid "This week on the wishlist"
-msgstr "Tento týden na wishlistu"
-
-#: web/utils.py:125
-msgid "Your list is empty"
-msgstr "Váš seznam je prázdný"
-
-#: web/utils.py:144
-msgid "will have a"
-msgstr "bude mít"
-
-#: web/utils.py:159
-msgid "You will have a"
-msgstr "Budete mít"
-
-#: web/utils.py:174
-msgid "Christmas is coming"
-msgstr "Blíží se Vánoce"
-
-#: web/views.py:24
-msgid "Hide taken"
-msgstr "Skrýt zabrané"
-
-#: web/views.py:25
-msgid "Show taken"
-msgstr "Ukázat zabrané"
-
-#: web/views.py:30
-msgid "Welcome"
-msgstr "Vítejte"
-
-#: web/views.py:130 web/views.py:174 web/views.py:198 web/views.py:310
-#: web/views.py:351
-msgid "Saved"
-msgstr "Uloženo"
-
-#: web/views.py:153 web/views.py:245
-#, fuzzy
-msgid "Deleted"
-msgstr "Smazáno"
-
-#: web/views.py:229
-msgid "You've committed to buy an item."
-msgstr "Rozhodli jste se koupit tuto položku"
-
-#: web/views.py:241
-msgid "You've been removed."
-msgstr "Odebrali jsme vás."
-
-#: web/views.py:247 web/templates/unsubscribed.html:7
-msgid "Done!"
-msgstr "Hotovo!"
-
-#: web/templates/base.html:42
+#: web/templates/base.html:43
 msgid "Change password"
 msgstr "Změnit heslo"
 
-#: web/templates/base.html:43
+#: web/templates/base.html:44
 msgid "What you're buying"
 msgstr "Co koupíte"
 
-#: web/templates/base.html:47
+#: web/templates/base.html:48
 msgid "Log out"
 msgstr "Odhlásit"
 
-#: web/templates/base.html:49 web/templates/registration/login.html:8
+#: web/templates/base.html:50 web/templates/registration/login.html:8
 msgid "Log in"
 msgstr "Přihlásit"
 
 #: web/templates/christmas.html:2 web/templates/email.html:2
-#: web/templates/nagging_email.html:2 web/templates/occasion.html:2
+#: web/templates/nagging_email.html:2
+#: web/templates/new_item_notification.html:2 web/templates/occasion.html:2
 #: web/templates/own-occasion.html:2
 msgid "Hello there!"
 msgstr "Ahoj!"
@@ -185,6 +128,7 @@ msgid "committed to buy an item"
 msgstr "se rozhodl koupit položku"
 
 #: web/templates/email.html:12 web/templates/nagging_email.html:8
+#: web/templates/new_item_notification.html:14
 msgid "Have a nice day!"
 msgstr "Hezký den!"
 
@@ -244,6 +188,17 @@ msgstr "Upravit"
 #: web/templates/new.html:14
 msgid "Add new item"
 msgstr "Přidat novou položku"
+
+#: web/templates/new_item_notification.html:4
+#, python-format
+msgid ""
+"\n"
+"%(first_name)s má novou věc na seznamu.\n"
+"\n"
+"\"%(item)s\"\n"
+"\n"
+"Podívejte se na jejich wishlist:\n"
+msgstr ""
 
 #: web/templates/occasion.html:4
 #, python-format
@@ -335,32 +290,6 @@ msgstr "Přispět"
 msgid "%(name)s already has everything :)"
 msgstr "%(name)s už všechno má :)"
 
-#: web/templates/shopping.html:10
-msgid "To purchase"
-msgstr "K zakoupení"
-
-#: web/templates/shopping.html:21 web/templates/shopping.html.py:51
-msgid "Mark this as already given"
-msgstr "Označ tohle jako že už ten dárek ten člověk dostal."
-
-#: web/templates/shopping.html:28
-#, fuzzy
-msgid "Mark this as purchased"
-msgstr "Oznaš tohle jako že už ten dárek ten člověk dostal."
-
-#: web/templates/shopping.html:40
-msgid "Purchased"
-msgstr "Zakoupeno"
-
-#: web/templates/shopping.html:58
-#, fuzzy
-msgid "Mark this as to purchase"
-msgstr "Oznaš tohle jako že už ten dárek ten člověk dostal."
-
-#: web/templates/unsubscribed.html:8
-msgid "You will no longer receive emails from the wishlist."
-msgstr "Už nebudete dostávat emaily od wishlistu."
-
 #: web/templates/registration/login.html:14
 msgid "Username"
 msgstr "Uživatelské jméno"
@@ -389,3 +318,93 @@ msgstr "Heslo znovu"
 #: web/templates/registration/password_done.html:8
 msgid "Password changed"
 msgstr "Heslo změněno"
+
+#: web/templates/shopping.html:10
+msgid "To purchase"
+msgstr "K zakoupení"
+
+#: web/templates/shopping.html:21 web/templates/shopping.html:51
+msgid "Mark this as already given"
+msgstr "Označ tohle jako že už ten dárek ten člověk dostal."
+
+#: web/templates/shopping.html:28
+#, fuzzy
+msgid "Mark this as purchased"
+msgstr "Oznaš tohle jako že už ten dárek ten člověk dostal."
+
+#: web/templates/shopping.html:40
+msgid "Purchased"
+msgstr "Zakoupeno"
+
+#: web/templates/shopping.html:58
+#, fuzzy
+msgid "Mark this as to purchase"
+msgstr "Oznaš tohle jako že už ten dárek ten člověk dostal."
+
+#: web/templates/unsubscribed.html:7 web/views.py:246
+msgid "Done!"
+msgstr "Hotovo!"
+
+#: web/templates/unsubscribed.html:8
+msgid "You will no longer receive emails from the wishlist."
+msgstr "Už nebudete dostávat emaily od wishlistu."
+
+#: web/utils.py:94
+msgid "Unsubscribe"
+msgstr "Odhlásit od odběru emailů"
+
+#: web/utils.py:110
+msgid "This week on the wishlist"
+msgstr "Tento týden na wishlistu"
+
+#: web/utils.py:125
+msgid "Your list is empty"
+msgstr "Váš seznam je prázdný"
+
+#: web/utils.py:144
+msgid "will have a"
+msgstr "bude mít"
+
+#: web/utils.py:159
+msgid "You will have a"
+msgstr "Budete mít"
+
+#: web/utils.py:173
+msgid "Christmas is coming"
+msgstr "Blíží se Vánoce"
+
+#: web/utils.py:215
+#, fuzzy
+#| msgid "This week on the wishlist"
+msgid "New item on the wishlist"
+msgstr "Tento týden na wishlistu"
+
+#: web/views.py:26
+msgid "Hide taken"
+msgstr "Skrýt zabrané"
+
+#: web/views.py:27
+msgid "Show taken"
+msgstr "Ukázat zabrané"
+
+#: web/views.py:32
+msgid "Welcome"
+msgstr "Vítejte"
+
+#: web/views.py:132 web/views.py:174 web/views.py:197 web/views.py:308
+#: web/views.py:348
+msgid "Saved"
+msgstr "Uloženo"
+
+#: web/views.py:154 web/views.py:244
+#, fuzzy
+msgid "Deleted"
+msgstr "Smazáno"
+
+#: web/views.py:228
+msgid "You've committed to buy an item."
+msgstr "Rozhodli jste se koupit tuto položku"
+
+#: web/views.py:240
+msgid "You've been removed."
+msgstr "Odebrali jsme vás."
