@@ -33,15 +33,12 @@ def send_nagging_emails():
 
 @task
 def send_new_item_notification_emails(item_pk):
-    print 'in task'
     users = get_users_to_notify_of_new_item(item_pk)
 
     try:
         item = Item.objects.get(pk=item_pk)
     except Item.DoesNotExist:
-        print 'nope'
         return
 
     for user in users:
-        print user
         send_new_item_notification_email(item, user)
