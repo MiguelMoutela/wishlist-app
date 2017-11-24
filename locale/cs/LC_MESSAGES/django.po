@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-21 19:37+0000\n"
+"POT-Creation-Date: 2017-11-24 13:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,12 +193,18 @@ msgstr "Přidat novou položku"
 #, python-format
 msgid ""
 "\n"
-"%(first_name)s má novou věc na seznamu.\n"
+"%(first_name)s just added a new item.\n"
+"\n"
+"\"%(item)s\"\n"
+"\n"
+"Check out their wishlist:\n"
+msgstr ""
+"\n"
+"%(first_name)s má na seznamu novou položku.\n"
 "\n"
 "\"%(item)s\"\n"
 "\n"
 "Podívejte se na jejich wishlist:\n"
-msgstr ""
 
 #: web/templates/occasion.html:4
 #, python-format
@@ -341,7 +347,7 @@ msgstr "Zakoupeno"
 msgid "Mark this as to purchase"
 msgstr "Oznaš tohle jako že už ten dárek ten člověk dostal."
 
-#: web/templates/unsubscribed.html:7 web/views.py:246
+#: web/templates/unsubscribed.html:7 web/views.py:247
 msgid "Done!"
 msgstr "Hotovo!"
 
@@ -373,11 +379,9 @@ msgstr "Budete mít"
 msgid "Christmas is coming"
 msgstr "Blíží se Vánoce"
 
-#: web/utils.py:215
-#, fuzzy
-#| msgid "This week on the wishlist"
+#: web/utils.py:214
 msgid "New item on the wishlist"
-msgstr "Tento týden na wishlistu"
+msgstr "Nová položka na wishlistu"
 
 #: web/views.py:26
 msgid "Hide taken"
@@ -391,20 +395,20 @@ msgstr "Ukázat zabrané"
 msgid "Welcome"
 msgstr "Vítejte"
 
-#: web/views.py:132 web/views.py:174 web/views.py:197 web/views.py:308
-#: web/views.py:348
+#: web/views.py:133 web/views.py:175 web/views.py:198 web/views.py:309
+#: web/views.py:349
 msgid "Saved"
 msgstr "Uloženo"
 
-#: web/views.py:154 web/views.py:244
+#: web/views.py:155 web/views.py:245
 #, fuzzy
 msgid "Deleted"
 msgstr "Smazáno"
 
-#: web/views.py:228
+#: web/views.py:229
 msgid "You've committed to buy an item."
 msgstr "Rozhodli jste se koupit tuto položku"
 
-#: web/views.py:240
+#: web/views.py:241
 msgid "You've been removed."
 msgstr "Odebrali jsme vás."

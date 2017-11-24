@@ -211,7 +211,6 @@ def send_new_item_notification_email(item, user):
         return
 
     with user_language(user.userprofile.language):
-
         subject = _('New item on the wishlist')
         email = render_new_item_notification(item, user)
 
