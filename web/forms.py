@@ -2,7 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
 from django import forms
-from models import Item
+from models import Item, UserProfile
 
 NAME_ATTRS = {
     'class': 'form-control',
@@ -80,3 +80,10 @@ class WishlistAuthenticationForm(AuthenticationForm):
                     code='inactive',
                 )
         return self.cleaned_data
+
+
+class EmailSettingsForm(forms.ModelForm):
+
+    class Meta:
+        model = UserProfile
+        fields = ('subscribed_to_email', 'per_item_email',)

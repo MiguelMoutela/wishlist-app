@@ -7,15 +7,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import Http404
-from django.template import RequestContext
-from django.shortcuts import render_to_response, get_object_or_404, redirect
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import ugettext_lazy as _
 from models import (
     Buy, Item, users_for_user, UserProfile, MagicLink,
     MagicLinkClick
 )
-from forms import ItemForm, ContributionForm
+from forms import ItemForm, ContributionForm, EmailSettingsForm
 from utils import get_latest_for_user
 from tasks import send_new_item_notification_emails
 
@@ -320,6 +318,26 @@ def shopping(request):
             'purchased': purchased
         }
         return render(request, 'shopping.html', data)
+
+
+@login_required
+def email(request):
+    instance = request.user.userprofile
+    if request.method == 'POST':
+        form = EmailSettingsForm(request.POST, instance=instance)
+
+        if form.is_valid():
+            form.save(commit=True)
+            messages.success(request, _("Saved"))
+            return redirect('index')
+
+    else:
+        form = EmailSettingsForm(instance=instance)
+
+    data = {
+        'form': form
+    }
+    return render(request, 'email-settings.html', data)
 
 
 @login_required

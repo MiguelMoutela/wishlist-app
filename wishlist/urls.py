@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^new$', views.item_create, name='item-create'),
     url(r'^new/(?P<user_pk>[0-9]+)$', views.item_create, name='item-create'),
     url(r'^shopping$', views.shopping, name='shopping'),
+    url(r'^email$', views.email, name='email'),
     url(r'^list/(?P<username>[0-9a-z]+)$', views.person_detail,
         name='person-detail'),
 

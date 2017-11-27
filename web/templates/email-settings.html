@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="row">
+
+  <div class="col-md-6">
+
+    <h1>{% trans "Email settings" %}</h1>
+
+      <p>
+        <form method="post">
+          {% csrf_token %}
+
+          {{ form.errors }}
+
+          <table class="table table-bordered">
+
+            <tr>
+              <td>
+                {% trans "Subscribed to weekly emails." %}
+              </td>
+              <td>
+                {{ form.subscribed_to_email }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                {% trans "Subscribed to emails when a new item is added." %}
+              </td>
+              <td>
+                {{ form.per_item_email }}
+              </td>
+            </tr>
+
+          </table>
+
+          <input type="submit" class="btn btn-primary" value="{% trans "Submit" %}"/>
+
+        </form>
+      </p>
+
+  </div>
+
+</div>
+
+{% endblock %}
