@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime, timedelta
 from contextlib import contextmanager
 
@@ -9,6 +10,9 @@ from django.conf import settings
 from django.template.loader import render_to_string
 
 from models import Buy, Item, users_for_user
+
+
+logger = logging.getLogger(__name__)
 
 
 DOMAIN = getattr(settings, 'DOMAIN')
@@ -94,6 +98,8 @@ def send_email_to_user(user, subject, message):
         unsubscribe_text = '\n\n\n\n' + _('Unsubscribe') + '\n\n' + link
 
         message += unsubscribe_text
+
+        logger.info('Sending email to {}'.format(user.email))
 
         send_mail(subject, message, 'wishlist@wishlist.pokorny.ca',
                   [user.email], fail_silently=False)
