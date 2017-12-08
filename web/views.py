@@ -98,12 +98,12 @@ def item_create(request, user_pk=None):
             obj.created_by = request.user
             obj.save()
 
-            send_new_item_notification_emails.delay(obj.pk)
-
             if surprise:
                 buy = Buy.objects.create(user=request.user, item=obj)
                 buy.save()
                 return redirect('person-detail', obj.user.username)
+            else:
+                send_new_item_notification_emails.delay(obj.pk)
 
             return redirect('index')
     else:
