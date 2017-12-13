@@ -5,7 +5,7 @@
 
 <div class="row">
 
-  <div class="col-md-4">
+  <div class="col-lg">
     <h1>{% trans "List of people" %}</h1>
     <ul>
       {% for user in users %}
@@ -18,7 +18,7 @@
     </ul>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-lg">
     <h1>{% trans "Recent events" %}</h1>
     {% for event in latest %}
       <div>
@@ -42,25 +42,36 @@
     {% endfor %}
   </div>
 
-  <div class="col-md-4">
+  <div class="col-lg">
     <h1>
       {% trans "Your list" %}
       <a href="{% url 'item-create' %}" class="btn btn-primary">{% trans "Add new" %}</a>
     </h1>
 
     {% for item in items %}
-      <h4>{{ item.name }}</h4>
-      <p>{{ item.html|safe }}</p>
-      <a href="{% url 'item-edit' item.pk %}" class="btn btn-primary btn-sm">{% trans "Edit" %}</a>
-      {% if item.multi_item %}
-        <form method="post" action="{% url 'item-enough' item.pk %}" class="inline-form">
-          {% csrf_token %}
-          <input type="submit" class="btn btn-primary btn-sm" value="{% trans "I have enough" %}" />
-        </form>
-      {% endif %}
-      <a href="{% url 'item-delete' item.pk %}" class="btn btn-danger btn-sm">{% trans "Delete" %}</a>
-      <a href="{% url 'item-given' item.pk %}" class="btn btn-success btn-sm">{% trans "Mark as given" %}</a>
-      <hr>
+      <div class="own-item">
+        <h4>{{ item.name }}</h4>
+
+        {% if item.html|safe %}
+          <div>{{ item.html|safe }}</div>
+        {% endif %}
+
+          <div>
+        <a href="{% url 'item-edit' item.pk %}" class="btn btn-primary btn-sm">{% trans "Edit" %}</a>
+
+        <a href="{% url 'item-delete' item.pk %}" class="btn btn-danger btn-sm">{% trans "Delete" %}</a>
+        <a href="{% url 'item-given' item.pk %}" class="btn btn-success btn-sm">{% trans "Mark as given" %}</a>
+
+        {% if item.multi_item %}
+          <form method="post" action="{% url 'item-enough' item.pk %}" class="form-inline" style="display: inline;">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary btn-sm" value="{% trans "I have enough" %}" />
+          </form>
+        {% endif %}
+          </div>
+
+        <hr>
+      </div>
     {% endfor %}
 
   </div>

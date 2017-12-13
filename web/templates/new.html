@@ -5,15 +5,19 @@
 
 <div class="row">
 
-  <h1>
-    {% if current_user %}
-      {% blocktrans with current_user.first_name as name %}Add new surprise for {{ name }}{% endblocktrans %}
-    {% elif edit %}
-      {% trans "Edit item" %}
-    {% else %}
-      {% trans "Add new item" %}
-    {% endif %}
-  </h1>
+  <div class="col-12">
+    <h1>
+      {% if current_user %}
+        {% blocktrans with current_user.first_name as name %}Add new surprise for {{ name }}{% endblocktrans %}
+      {% elif edit %}
+        {% trans "Edit item" %}
+      {% else %}
+        {% trans "Add new item" %}
+      {% endif %}
+    </h1>
+  </div>
+
+  <div class="col-12">
 
     <form role="form" method="post">
       {% csrf_token %}
@@ -41,6 +45,8 @@
       <input type="submit" class="btn btn-primary" value="{% trans "Submit" %}"/>
 
     </form>
+
+  </div>
 
 </div>
 

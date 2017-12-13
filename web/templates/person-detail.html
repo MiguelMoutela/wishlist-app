@@ -46,44 +46,47 @@
 
 {% for item in items %}
 <div class="item row{% if item.buying %} taken{% endif %}">
-  <h3{% if item.surprise %} class="text-danger"{% endif %}>
-      {% if item.surprise %}
+  <div class="col-12">
+    <h3{% if item.surprise %} class="text-danger"{% endif %}>
+        {% if item.surprise %}
 
-        <span class="label label-danger"
-              data-toggle="tooltip"
-              data-placement="right"
-              title="{% blocktrans with person.first_name as name %}This is surprise, do not tell {{ name }}!{% endblocktrans %}">
-          {% trans "Surprise" %}
-              </span>
-      {% endif %} {{ item.name }}
-      {% if item.multi_item %}
-          <span class="label label-default">{% trans "Multi" %}</span>
-      {% endif %}
-      {% if item.price %}
-        <span class="label label-info">{% trans "About" %} {{ item.price }}</span>
-      {% else %}
-        {% if item.buying %}
-          {% for purchase in item.buying %}
-              <span class="label label-danger">
-                  {% trans "Taken by" %}
-                  {% if purchase.user.pk == user.pk %}
-                      {% trans "me" %}
-                  {% else %}
-                      {{ purchase.user.first_name }}
-                  {% endif %}
-              </span>
-              &nbsp;
-          {% endfor %}
-          {% if item.multi_item and not item in my_buying %}
-              <span class="label label-success">{% trans "Still free" %}</span>
-          {% endif %}
-        {% else %}
-          <span class="label label-success">{% trans "Free" %}</span>
+          <span class="badge badge-danger"
+                data-toggle="tooltip"
+                data-placement="right"
+                title="{% blocktrans with person.first_name as name %}This is surprise, do not tell {{ name }}!{% endblocktrans %}">
+            {% trans "Surprise" %}
+                </span>
+        {% endif %} {{ item.name }}
+        {% if item.multi_item %}
+            <span class="badge badge-default">{% trans "Multi" %}</span>
         {% endif %}
-      {% endif %}
-  <small>{{ item.created }}</small>
-  </h3>
+        {% if item.price %}
+          <span class="badge badge-info">{% trans "About" %} {{ item.price }}</span>
+        {% else %}
+          {% if item.buying %}
+            {% for purchase in item.buying %}
+                <span class="badge badge-danger">
+                    {% trans "Taken by" %}
+                    {% if purchase.user.pk == user.pk %}
+                        {% trans "me" %}
+                    {% else %}
+                        {{ purchase.user.first_name }}
+                    {% endif %}
+                </span>
+                &nbsp;
+            {% endfor %}
+            {% if item.multi_item and not item in my_buying %}
+                <span class="badge badge-success">{% trans "Still free" %}</span>
+            {% endif %}
+          {% else %}
+            <span class="badge badge-success">{% trans "Free" %}</span>
+          {% endif %}
+        {% endif %}
+    <small>{{ item.created }}</small>
+    </h3>
+  </div>
 
+  <br>
 
   {% if item.price %}
     <div class="progress">
@@ -95,7 +98,7 @@
     </div>
   {% endif %}
 
-  <div class="item-description col-md-6">
+  <div class="item-description col-12">
     {{ item.html|safe }}
   </div>
 
@@ -125,8 +128,8 @@
     </form>
   </div>
 
-</div>
 <hr>
+</div>
 
 {% empty %}
 
@@ -136,7 +139,7 @@
 
 {% endfor %}
 <script type="text/javascript">
-  $("span.label-danger").tooltip();
+  $("span.badge-danger").tooltip();
 </script>
 
 {% endblock %}
