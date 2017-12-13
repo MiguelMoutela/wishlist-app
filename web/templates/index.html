@@ -49,14 +49,17 @@
     </h1>
 
     {% for item in items %}
-      <div class="own-item">
-        <h4>{{ item.name }}</h4>
+      <div class="own-item card">
+        <div class="card-header">
+          <h4>{{ item.name }}</h4>
+        </div>
+
+        <div class="card-body">
 
         {% if item.html|safe %}
           <div>{{ item.html|safe }}</div>
         {% endif %}
 
-          <div>
         <a href="{% url 'item-edit' item.pk %}" class="btn btn-primary btn-sm">{% trans "Edit" %}</a>
 
         <a href="{% url 'item-delete' item.pk %}" class="btn btn-danger btn-sm">{% trans "Delete" %}</a>
@@ -70,7 +73,6 @@
         {% endif %}
           </div>
 
-        <hr>
       </div>
     {% endfor %}
 
