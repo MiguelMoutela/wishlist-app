@@ -82,12 +82,9 @@
             <span class="badge badge-success">{% trans "Free" %}</span>
           {% endif %}
         {% endif %}
-    <small>{{ item.created }}</small>
     </h3>
   </div>
   <div class="card-body">
-
-  <br>
 
   {% if item.price %}
     <div class="progress">
@@ -128,6 +125,10 @@
       {% endif %}
     </form>
   </div>
+  </div>
+
+  <div class="card-footer">
+    <small>{{ item.created }}</small>
   </div>
 
 </div>
