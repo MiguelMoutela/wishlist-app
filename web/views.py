@@ -230,7 +230,9 @@ def person_detail(request, username):
             if not buying:
                 raise Http404
 
-            Buy.objects.filter(user=request.user, item=item).delete()
+            Buy.objects.filter(user=request.user,
+                               item=item,
+                               already_given=False).delete()
 
             if item.price and not Buy.objects.filter(item=item).exists():
                 item.price = None
@@ -248,10 +250,13 @@ def person_detail(request, username):
     items = Item.objects.filter(
         user=person, already_given=False).order_by('created')
 
+    my_buying = Item.objects.filter(buy__user=request.user,
+                                    buy__already_given=False)
+
     data = {
         'person': person,
         'items': items,
-        'my_buying': Item.objects.filter(buy__user=request.user),
+        'my_buying': my_buying,
         'HIDE': HIDE,
         'SHOW': SHOW
     }
@@ -276,10 +281,17 @@ def shopping(request):
             item = get_object_or_404(Item, pk=pk)
 
             if item.multi_item:
-                raise Http404
+                pk = request.POST.get('buy_pk', None)
 
-            item.already_given = True
-            item.save()
+                if not pk:
+                    raise Http404
+
+                buy = get_object_or_404(Buy, pk=pk)
+                buy.already_given = True
+                buy.save()
+            else:
+                item.already_given = True
+                item.save()
 
         if action == 'purchase':
 
@@ -308,7 +320,8 @@ def shopping(request):
 
     else:
         items = Buy.objects.filter(user=request.user,
-                                   item__already_given=False)
+                                   item__already_given=False,
+                                   already_given=False)
 
         to_purchase = items.filter(purchased=False)
         purchased = items.filter(purchased=True)

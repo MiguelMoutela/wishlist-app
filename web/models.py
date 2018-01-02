@@ -132,6 +132,10 @@ class Buy(models.Model):
 
     purchased = models.BooleanField(default=False)
 
+    # NOTE: already_given is only used for multiples; the save() method won't
+    # allow anything else
+    already_given = models.BooleanField(default=False)
+
     amount = models.DecimalField(null=True, max_digits=11, decimal_places=2,
                                  default=None,
                                  verbose_name=_('My contribution'))
@@ -142,6 +146,12 @@ class Buy(models.Model):
     @property
     def type(self):
         return 'buy'
+
+    def save(self, *args, **kwargs):
+        if self.already_given and not self.item.multi_item:
+            raise ValueError('Trying to set already given on non-multi')
+
+        return super(Buy, self).save(*args, **kwargs)
 
 
 class Visit(models.Model):

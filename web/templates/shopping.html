@@ -46,10 +46,9 @@
         <form method="post">
           {% csrf_token %}
           <input type="hidden" name="item_pk" value="{{ buy.item.pk }}" />
+          <input type="hidden" name="buy_pk" value="{{ buy.pk }}" />
           <input type="hidden" name="action" value="given" />
-          {% if not buy.item.multi_item %}
-            <input class="btn btn-primary" type="submit" value="{% trans 'Mark this as already given' %}" />
-          {% endif %}
+          <input class="btn btn-primary" type="submit" value="{% trans 'Mark this as already given' %}" />
         </form>
         <form method="post">
           {% csrf_token %}

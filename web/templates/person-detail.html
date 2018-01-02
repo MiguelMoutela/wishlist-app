@@ -66,11 +66,16 @@
           {% if item.buying %}
             {% for purchase in item.buying %}
                 <span class="badge badge-danger">
-                    {% trans "Taken by" %}
                     {% if purchase.user.pk == user.pk %}
+                      {% if purchase.already_given %}
+                        {% trans "Already bought once before" %}
+                      {% else %}
+                        {% trans "Taken by" %}
                         {% trans "me" %}
+                      {% endif %}
                     {% else %}
-                        {{ purchase.user.first_name }}
+                      {% trans "Taken by" %}
+                      {{ purchase.user.first_name }}
                     {% endif %}
                 </span>
                 &nbsp;
